@@ -1,0 +1,132 @@
+---
+import Layout from './Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/sections/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  pageTitle?: string;
+  eyebrow: string;
+  subtitle: string;
+  lastUpdated: string;
+}
+
+const { title, description, pageTitle, eyebrow, subtitle, lastUpdated } = Astro.props;
+---
+
+<Layout title={pageTitle ?? title} description={description ?? subtitle}>
+  <Header />
+  <main>
+    <section class="mx-auto max-w-3xl px-4 pt-32 pb-24 sm:px-6">
+      <div class="border-b border-line pb-10">
+        <a href="/" class="mono-label transition-colors hover:text-text">← Back to home</a>
+        <p class="mono-label mt-12">{eyebrow}</p>
+        <h1 class="display-sub mt-5 text-[clamp(2rem,5vw,3.2rem)]">{title}</h1>
+        <p class="mt-6 text-lg leading-8 text-muted">{subtitle}</p>
+        <p class="mono-label mono-label--amber mt-8">Last updated: {lastUpdated}</p>
+      </div>
+      <slot />
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  :global(.legal-prose) {
+    margin-top: 3rem;
+  }
+
+  :global(.legal-prose p) {
+    color: #b9c1d6;
+    line-height: 1.7;
+    font-size: 1rem;
+    margin-top: 1.25rem;
+  }
+
+  :global(.legal-prose h2) {
+    font-family: var(--font-display);
+    font-variation-settings: 'wdth' 118;
+    font-weight: 760;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+    font-size: 1.35rem;
+    line-height: 1.1;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-line);
+  }
+
+  :global(.legal-prose h3) {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-amber);
+    font-weight: 500;
+    margin-top: 2rem;
+  }
+
+  :global(.legal-prose ul) {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 1.25rem;
+  }
+
+  :global(.legal-prose ul ul) {
+    margin-top: 0.75rem;
+    padding-left: 1.5rem;
+  }
+
+  :global(.legal-prose li) {
+    position: relative;
+    color: #b9c1d6;
+    line-height: 1.7;
+    margin-top: 0.5rem;
+    padding-left: 1.35rem;
+  }
+
+  :global(.legal-prose ul > li::before) {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--color-cobalt);
+  }
+
+  :global(.legal-prose ul ul > li::before) {
+    color: var(--color-muted);
+  }
+
+  :global(.legal-prose ol) {
+    list-style: decimal;
+    margin-top: 1.25rem;
+    padding-left: 1.4rem;
+  }
+
+  :global(.legal-prose ol > li) {
+    padding-left: 0.4rem;
+  }
+
+  :global(.legal-prose ol > li::before) {
+    content: none;
+  }
+
+  :global(.legal-prose ol > li::marker) {
+    font-family: var(--font-mono);
+    color: var(--color-amber);
+  }
+
+  :global(.legal-prose strong) {
+    color: var(--color-text);
+  }
+
+  :global(.legal-prose a) {
+    color: var(--color-cobalt);
+    text-decoration: none;
+  }
+
+  :global(.legal-prose a:hover) {
+    text-decoration: underline;
+  }
+</style>

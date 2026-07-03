@@ -1,0 +1,53 @@
+---
+const faults = [
+  {
+    code: 'FAULT/01',
+    title: 'Inbound spikes, then disappears.',
+    body: 'Content works until the algorithm shifts. No control over inputs.',
+  },
+  {
+    code: 'FAULT/02',
+    title: 'Paid works, then CAC drifts.',
+    body: "Spend scales, economics don't. The channel was never engineered.",
+  },
+  {
+    code: 'FAULT/03',
+    title: "Outbound depends on individuals.",
+    body: "Pipeline lives in one rep's habits. People leave; systems stay.",
+  },
+];
+---
+
+<section id="diagnosis" class="border-t border-line py-24 md:py-32">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="mb-10 flex items-center justify-between gap-4">
+      <span class="mono-label">SYS/01 — Diagnosis</span>
+    </div>
+
+    <div class="reveal max-w-3xl">
+      <h2 class="display-sub text-[clamp(1.8rem,4.5vw,3.2rem)]">
+        Most revenue systems break at scale.
+      </h2>
+    </div>
+
+    <div class="mt-12 grid gap-4 md:grid-cols-3">
+      {
+        faults.map((fault, index) => (
+          <article class="panel bracket reveal px-5 py-6" data-reveal-delay={String(index * 0.1)}>
+            <div class="flex items-center justify-between gap-4">
+              <span class="mono-label text-fault">{fault.code}</span>
+              <span class="led led--fault led--pulse" aria-hidden="true"></span>
+            </div>
+            <h3 class="display-sub mt-8 text-xl">{fault.title}</h3>
+            <p class="mt-4 leading-relaxed text-muted">{fault.body}</p>
+          </article>
+        ))
+      }
+    </div>
+
+    <p class="reveal mx-auto mt-12 max-w-3xl text-center leading-relaxed text-muted">
+      This happens because channels aren't built as systems.{' '}
+      <span class="mono-data text-amber">Predictable revenue comes from predictable inputs.</span>
+    </p>
+  </div>
+</section>

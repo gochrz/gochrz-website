@@ -1,0 +1,19 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import * as Privacy from '../content/legal/privacy.md';
+
+const { title, subtitle, lastUpdated } = Privacy.frontmatter;
+---
+
+<LegalLayout
+  title={title}
+  pageTitle="Privacy Policy — CHRZ"
+  description={subtitle}
+  eyebrow="LEGAL/02 — PRIVACY POLICY"
+  subtitle={subtitle}
+  lastUpdated={lastUpdated}
+>
+  <article class="legal-prose">
+    <Privacy.Content />
+  </article>
+</LegalLayout>

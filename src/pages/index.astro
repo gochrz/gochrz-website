@@ -2,14 +2,35 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import ResultsMarquee from '../components/sections/ResultsMarquee.astro';
+import Diagnosis from '../components/sections/Diagnosis.astro';
+import Solution from '../components/sections/Solution.astro';
+import Systems from '../components/sections/Systems.astro';
+import Pipeline from '../components/sections/Pipeline.astro';
+import InstallPlan from '../components/sections/InstallPlan.astro';
+import Contrast from '../components/sections/Contrast.astro';
+import Results from '../components/sections/Results.astro';
+import Faq from '../components/sections/Faq.astro';
+import FinalCta from '../components/sections/FinalCta.astro';
+import Footer from '../components/sections/Footer.astro';
 ---
 
 <Layout>
   <Header />
   <main>
     <Hero />
-    <!-- Sections below are implemented in src/components/sections/ -->
+    <ResultsMarquee />
+    <Diagnosis />
+    <Solution />
+    <Systems />
+    <Pipeline />
+    <InstallPlan />
+    <Contrast />
+    <Results />
+    <Faq />
+    <FinalCta />
   </main>
+  <Footer />
   <script>
     import '../scripts/motion';
   </script>

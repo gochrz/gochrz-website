@@ -1,0 +1,19 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import * as Terms from '../content/legal/terms.md';
+
+const { title, subtitle, lastUpdated } = Terms.frontmatter;
+---
+
+<LegalLayout
+  title={title}
+  pageTitle="Terms of Service — CHRZ"
+  description={subtitle}
+  eyebrow="LEGAL/01 — TERMS OF SERVICE"
+  subtitle={subtitle}
+  lastUpdated={lastUpdated}
+>
+  <article class="legal-prose">
+    <Terms.Content />
+  </article>
+</LegalLayout>

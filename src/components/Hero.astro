@@ -1,0 +1,219 @@
+---
+// The signature element: a live schematic of the revenue system CHRZ installs.
+// Nodes power on in sequence, pulses travel along the line, counters tick.
+const nodes = [
+  { id: 'traffic', label: 'Traffic', metric: 'sessions', start: 2481 },
+  { id: 'capture', label: 'Capture', metric: 'leads', start: 312 },
+  { id: 'qualify', label: 'Qualify', metric: 'SQLs', start: 118 },
+  { id: 'sales', label: 'Sales', metric: 'calls', start: 34 },
+  { id: 'report', label: 'Report', metric: 'MRR', start: 96, prefix: '$', suffix: 'k' },
+];
+---
+
+<section id="top" class="relative overflow-hidden pt-14">
+  <div class="grid-bg pointer-events-none absolute inset-0" aria-hidden="true"></div>
+
+  <div class="relative mx-auto max-w-6xl px-4 pt-16 pb-20 sm:px-6 md:pt-24">
+    <!-- Status bar -->
+    <div class="mb-10 flex flex-wrap items-center gap-x-6 gap-y-2 border-b border-line pb-4">
+      <span class="mono-label flex items-center gap-2">
+        <span class="led led--pulse" aria-hidden="true"></span>
+        <span data-boot-status>System status: operational</span>
+      </span>
+      <span class="mono-label hidden sm:inline">SYS/00 — Acquisition schematic</span>
+      <span class="mono-label mono-label--amber ml-auto">Trusted by 160+ 7-figure B2B businesses</span>
+    </div>
+
+    <!-- Headline -->
+    <h1 class="display text-[clamp(2.9rem,9vw,7.5rem)]">
+      <span class="block overflow-hidden"><span class="block" data-hero-line>Predictable</span></span>
+      <span class="block overflow-hidden"><span class="block" data-hero-line>Revenue.</span></span>
+      <span class="block overflow-hidden">
+        <span class="block text-cobalt" data-hero-line>
+          Installed<span class="text-amber" data-cursor>_</span>
+        </span>
+      </span>
+    </h1>
+
+    <div class="mt-8 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+      <p class="max-w-md text-base leading-relaxed text-muted sm:text-lg" data-hero-fade>
+        We design and install scalable acquisition systems that generate consistent
+        B2B revenue — without randomness. Not campaigns. Not experiments. Not guesses.
+      </p>
+      <div class="flex flex-wrap items-center gap-4" data-hero-fade>
+        <a
+          href="#book"
+          class="mono-data inline-flex items-center gap-2 border border-cobalt bg-cobalt px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-transparent hover:text-cobalt"
+        >
+          Book a systems call <span aria-hidden="true">→</span>
+        </a>
+        <a
+          href="#systems"
+          class="mono-label border border-line px-6 py-3.5 transition-colors hover:border-line-strong hover:text-text"
+        >
+          See the systems
+        </a>
+      </div>
+    </div>
+
+    <!-- Live schematic -->
+    <div class="panel-raised relative mt-16 px-4 pt-5 pb-8 sm:px-6" data-schematic>
+      <div class="mb-6 flex items-center justify-between">
+        <span class="mono-label">Fig. 01 — Revenue system, running</span>
+        <span class="mono-label mono-label--amber hidden sm:flex items-center gap-2">
+          <span class="led led--amber led--pulse" aria-hidden="true"></span>
+          Live signal
+        </span>
+      </div>
+
+      <div class="relative">
+        <!-- Node row -->
+        <ol class="relative z-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5" role="list">
+          {
+            nodes.map((node, i) => (
+              <li
+                class="panel bracket relative px-4 py-4"
+                data-node
+                data-node-index={i}
+              >
+                <div class="flex items-center justify-between gap-2">
+                  <span class="mono-label">{String(i + 1).padStart(2, '0')}</span>
+                  <span class="led" data-node-led aria-hidden="true"></span>
+                </div>
+                <p class="display-sub mt-3 text-lg">{node.label}</p>
+                <p class="mono-data mt-2 text-sm text-amber">
+                  <span
+                    data-counter
+                    data-start={node.start}
+                    data-prefix={node.prefix ?? ''}
+                    data-suffix={node.suffix ?? ''}
+                  >
+                    {node.prefix ?? ''}{node.start.toLocaleString('en-US')}{node.suffix ?? ''}
+                  </span>
+                  <span class="text-muted"> {node.metric}</span>
+                </p>
+                {i < nodes.length - 1 && (
+                  <span
+                    class="absolute top-1/2 -right-3 hidden h-px w-3 bg-line-strong lg:block"
+                    aria-hidden="true"
+                  />
+                )}
+              </li>
+            ))
+          }
+        </ol>
+
+        <!-- Feedback loop: report feeds back into traffic (weekly reporting loop) -->
+        <svg
+          class="mt-2 hidden w-full lg:block"
+          viewBox="0 0 1000 56"
+          fill="none"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            data-loop-path
+            d="M 950 4 V 36 H 50 V 4"
+            stroke="var(--color-amber)"
+            stroke-opacity="0.55"
+            stroke-width="1"
+            stroke-dasharray="5 6"
+          />
+          <circle data-loop-dot r="3" fill="var(--color-amber)" opacity="0"></circle>
+        </svg>
+        <p class="mono-label mono-label--amber mt-2 hidden text-center lg:block">
+          Weekly reporting loop — outputs tune inputs
+        </p>
+      </div>
+
+      <p class="mono-label mt-6 lg:mt-4">
+        When inputs are controlled, outputs become predictable.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
+
+  gsap.registerPlugin(MotionPathPlugin);
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // --- Counter ticking: numbers drift upward like live telemetry ---
+  const counters = document.querySelectorAll<HTMLElement>('[data-counter]');
+  if (!reduced) {
+    counters.forEach((el) => {
+      let value = Number(el.dataset.start ?? '0');
+      const prefix = el.dataset.prefix ?? '';
+      const suffix = el.dataset.suffix ?? '';
+      const tick = () => {
+        // small nodes drift slowly, big numbers drift faster
+        value += Math.random() < 0.6 ? 1 : 0;
+        el.textContent = `${prefix}${value.toLocaleString('en-US')}${suffix}`;
+        setTimeout(tick, 1200 + Math.random() * 2600);
+      };
+      setTimeout(tick, 1500 + Math.random() * 2000);
+    });
+  }
+
+  // --- Boot sequence ---
+  const heroLines = document.querySelectorAll('[data-hero-line]');
+  const fades = document.querySelectorAll('[data-hero-fade]');
+  const nodesEls = document.querySelectorAll('[data-node]');
+  const cursor = document.querySelector('[data-cursor]');
+  const status = document.querySelector('[data-boot-status]');
+
+  if (reduced) {
+    gsap.set([heroLines, fades, nodesEls], { clearProps: 'all' });
+  } else {
+    if (status) {
+      const phases = ['Booting acquisition system…', 'Channels connected', 'System status: operational'];
+      phases.forEach((text, i) => {
+        setTimeout(() => (status.textContent = text), 400 + i * 900);
+      });
+    }
+
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    tl.from(heroLines, { yPercent: 110, duration: 0.9, stagger: 0.12 }, 0.15)
+      .from(fades, { opacity: 0, y: 18, duration: 0.7, stagger: 0.1 }, '-=0.4')
+      .from(
+        nodesEls,
+        { opacity: 0, y: 16, duration: 0.5, stagger: 0.09, ease: 'power2.out' },
+        '-=0.3'
+      );
+
+    if (cursor) {
+      gsap.to(cursor, { opacity: 0, duration: 0.6, repeat: -1, yoyo: true, ease: 'steps(1)' });
+    }
+
+    // LEDs blink on in pipeline order
+    document.querySelectorAll('[data-node-led]').forEach((led, i) => {
+      gsap.fromTo(
+        led,
+        { opacity: 0.15 },
+        { opacity: 1, duration: 0.3, delay: 1.4 + i * 0.25 }
+      );
+    });
+
+    // --- Feedback-loop pulse: a dot travels the reporting loop forever ---
+    const loopPath = document.querySelector<SVGPathElement>('[data-loop-path]');
+    const loopDot = document.querySelector('[data-loop-dot]');
+    if (loopPath && loopDot) {
+      gsap.set(loopDot, { opacity: 1 });
+      gsap.to(loopDot, {
+        motionPath: { path: loopPath, align: loopPath, alignOrigin: [0.5, 0.5] },
+        duration: 6,
+        repeat: -1,
+        ease: 'none',
+        delay: 2,
+      });
+      gsap.fromTo(
+        loopPath,
+        { strokeDashoffset: 0 },
+        { strokeDashoffset: -22, duration: 2, repeat: -1, ease: 'none' }
+      );
+    }
+  }
+</script>

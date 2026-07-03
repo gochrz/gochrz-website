@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<Layout>
+  <Header />
+  <main>
+    <Hero />
+    <!-- Sections below are implemented in src/components/sections/ -->
+  </main>
+  <script>
+    import '../scripts/motion';
+  </script>
+</Layout>

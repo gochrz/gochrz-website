@@ -7,8 +7,8 @@ const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (reduced) {
   gsap.set('.reveal', { clearProps: 'all', opacity: 1, y: 0 });
+  gsap.set('[data-trust-line]', { width: '100%' });
 } else {
-  // Generic scroll reveals — any element with .reveal
   document.querySelectorAll<HTMLElement>('.reveal').forEach((el) => {
     gsap.to(el, {
       opacity: 1,
@@ -20,35 +20,38 @@ if (reduced) {
     });
   });
 
-  // Vertical line that draws itself as the install timeline scrolls
-  document.querySelectorAll<SVGPathElement>('[data-draw-path]').forEach((path) => {
-    const length = path.getTotalLength();
-    gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
-    gsap.to(path, {
-      strokeDashoffset: 0,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: path.closest('[data-draw-scope]') ?? path,
-        start: 'top 70%',
-        end: 'bottom 55%',
-        scrub: 0.6,
-      },
-    });
-  });
+  document.querySelectorAll<HTMLElement>('[data-trust-flow]').forEach((flow) => {
+    const line = flow.querySelector<HTMLElement>('[data-trust-line]');
+    const steps = gsap.utils.toArray<HTMLElement>(flow.querySelectorAll('[data-trust-step]'));
 
-  // Pipeline stages light up in sequence while scrolling through the section
-  const stages = gsap.utils.toArray<HTMLElement>('[data-stage]');
-  if (stages.length) {
-    stages.forEach((stage, i) => {
-      gsap.from(stage, {
-        opacity: 0.25,
-        duration: 0.4,
+    if (line) {
+      gsap.to(line, {
+        width: '100%',
+        ease: 'none',
         scrollTrigger: {
-          trigger: stage.closest('[data-pipeline]') ?? stage,
-          start: `top+=${i * 8}% 70%`,
-          toggleActions: 'play none none reverse',
+          trigger: flow,
+          start: 'top 70%',
+          end: 'bottom 55%',
+          scrub: 0.6,
         },
       });
+    }
+
+    steps.forEach((step, index) => {
+      gsap.fromTo(
+        step,
+        { filter: 'saturate(0.65)', scale: 0.98 },
+        {
+          filter: 'saturate(1)',
+          scale: 1,
+          duration: 0.45,
+          scrollTrigger: {
+            trigger: step,
+            start: `top+=${index * 8}% 75%`,
+            toggleActions: 'play none none reverse',
+          },
+        }
+      );
     });
-  }
+  });
 }

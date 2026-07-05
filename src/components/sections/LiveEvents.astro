@@ -1,0 +1,57 @@
+---
+const builds = [
+  'Live webinars',
+  'Virtual workshops',
+  'Product launches',
+  'Customer events',
+  'Founder presentations',
+  'Automated webinar funnels',
+  'Live-to-evergreen systems',
+];
+---
+
+<section id="events" class="bg-surface py-20 md:py-28">
+  <div class="section-shell">
+    <div class="grid gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-start">
+      <div class="reveal">
+        <p class="eyebrow text-violet">PILLAR 02 — DIGITAL LIVE EVENTS</p>
+        <h2 class="mt-5 text-4xl font-extrabold leading-tight text-ink sm:text-5xl">
+          Trust is built live.
+        </h2>
+        <p class="mt-6 text-xl leading-9 text-body">
+          In a world of AI-generated content, real interaction stands out, deepens connection, and scales.
+        </p>
+        <p class="mt-8 text-lg leading-8 text-body">
+          Fully scripted and produced by us. Designed to reshape how attendees think, build conviction, and convert them into subscription and high-ticket customers — all in 60 minutes.
+        </p>
+        <p class="mt-8 text-2xl font-extrabold leading-tight text-ink">
+          A repeatable revenue engine that doesn't rely on more sales calls.
+        </p>
+      </div>
+
+      <div class="reveal rounded-2xl border border-line bg-white p-7 shadow-xl shadow-violet/10">
+        <h3 class="text-xl font-extrabold text-ink">We build</h3>
+        <div class="mt-6 grid gap-3">
+          {
+            builds.map((item) => (
+              <div class="flex items-center gap-3 rounded-xl bg-[#f5f3ff] px-4 py-3 text-sm font-bold text-ink">
+                <span class="h-2.5 w-2.5 rounded-full bg-violet"></span>
+                <span>{item}</span>
+              </div>
+            ))
+          }
+        </div>
+        <div class="mt-7 grid gap-4 sm:grid-cols-2">
+          <div class="rounded-2xl border border-line p-5">
+            <p class="gradient-text text-4xl font-extrabold">$10M+</p>
+            <p class="mt-2 font-bold text-body">GMV through webinars</p>
+          </div>
+          <div class="rounded-2xl border border-line p-5">
+            <p class="gradient-text text-4xl font-extrabold">1,000+</p>
+            <p class="mt-2 font-bold text-body">live hours</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

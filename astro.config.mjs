@@ -6,6 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 // If SSR is ever needed, add the @astrojs/vercel adapter.
 export default defineConfig({
   site: 'https://gochrz.com',
+  devToolbar: { enabled: false },
   vite: {
     plugins: [tailwindcss()],
   },

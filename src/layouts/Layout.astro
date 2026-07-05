@@ -1,7 +1,5 @@
 ---
-import '@fontsource-variable/archivo';
-import '@fontsource/ibm-plex-mono/400.css';
-import '@fontsource/ibm-plex-mono/500.css';
+import '@fontsource-variable/inter';
 import '../styles/global.css';
 
 interface Props {
@@ -10,9 +8,9 @@ interface Props {
 }
 
 const {
-  title = 'CHRZ — Predictable Revenue. Installed.',
+  title = 'CHRZ — B2B Marketing Designed for the New World',
   description =
-    'We design and install scalable acquisition systems that generate consistent B2B revenue — without randomness.',
+    'We help B2B SaaS companies, service businesses, and creator businesses generate revenue through live events, industry personalities, and social content.',
 } = Astro.props;
 ---
 
@@ -32,7 +30,7 @@ const {
       document.documentElement.classList.remove('no-js');
     </script>
   </head>
-  <body class="bg-ink-0 text-text min-h-screen">
+  <body class="min-h-screen bg-bg text-body">
     <slot />
   </body>
 </html>

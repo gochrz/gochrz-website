@@ -20,11 +20,11 @@ const { title, description, pageTitle, eyebrow, subtitle, lastUpdated } = Astro.
   <main>
     <section class="mx-auto max-w-3xl px-4 pt-32 pb-24 sm:px-6">
       <div class="border-b border-line pb-10">
-        <a href="/" class="mono-label transition-colors hover:text-text">← Back to home</a>
-        <p class="mono-label mt-12">{eyebrow}</p>
-        <h1 class="display-sub mt-5 text-[clamp(2rem,5vw,3.2rem)]">{title}</h1>
-        <p class="mt-6 text-lg leading-8 text-muted">{subtitle}</p>
-        <p class="mono-label mono-label--amber mt-8">Last updated: {lastUpdated}</p>
+        <a href="/" class="eyebrow text-blue transition-colors hover:text-ink">Back to home</a>
+        <p class="eyebrow mt-12 text-blue">{eyebrow}</p>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight text-ink sm:text-5xl">{title}</h1>
+        <p class="mt-6 text-lg leading-8 text-body">{subtitle}</p>
+        <p class="eyebrow mt-8 text-amber-deep">Last updated: {lastUpdated}</p>
       </div>
       <slot />
     </section>
@@ -38,7 +38,7 @@ const { title, description, pageTitle, eyebrow, subtitle, lastUpdated } = Astro.
   }
 
   :global(.legal-prose p) {
-    color: #b9c1d6;
+    color: var(--color-body);
     line-height: 1.7;
     font-size: 1rem;
     margin-top: 1.25rem;
@@ -46,25 +46,21 @@ const { title, description, pageTitle, eyebrow, subtitle, lastUpdated } = Astro.
 
   :global(.legal-prose h2) {
     font-family: var(--font-display);
-    font-variation-settings: 'wdth' 118;
-    font-weight: 760;
-    text-transform: uppercase;
-    letter-spacing: -0.01em;
-    color: var(--color-text);
-    font-size: 1.35rem;
-    line-height: 1.1;
+    font-weight: 800;
+    color: var(--color-ink);
+    font-size: 1.5rem;
+    line-height: 1.2;
     margin-top: 3rem;
     padding-top: 2rem;
     border-top: 1px solid var(--color-line);
   }
 
   :global(.legal-prose h3) {
-    font-family: var(--font-mono);
     font-size: 0.8125rem;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--color-amber);
-    font-weight: 500;
+    letter-spacing: 0.18em;
+    color: var(--color-amber-deep);
+    font-weight: 700;
     margin-top: 2rem;
   }
 
@@ -81,21 +77,25 @@ const { title, description, pageTitle, eyebrow, subtitle, lastUpdated } = Astro.
 
   :global(.legal-prose li) {
     position: relative;
-    color: #b9c1d6;
+    color: var(--color-body);
     line-height: 1.7;
     margin-top: 0.5rem;
     padding-left: 1.35rem;
   }
 
   :global(.legal-prose ul > li::before) {
-    content: '▸';
+    content: '';
     position: absolute;
-    left: 0;
-    color: var(--color-cobalt);
+    top: 0.7rem;
+    left: 0.15rem;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 9999px;
+    background: var(--color-blue);
   }
 
   :global(.legal-prose ul ul > li::before) {
-    color: var(--color-muted);
+    background: var(--color-line);
   }
 
   :global(.legal-prose ol) {
@@ -113,16 +113,16 @@ const { title, description, pageTitle, eyebrow, subtitle, lastUpdated } = Astro.
   }
 
   :global(.legal-prose ol > li::marker) {
-    font-family: var(--font-mono);
-    color: var(--color-amber);
+    color: var(--color-amber-deep);
+    font-weight: 700;
   }
 
   :global(.legal-prose strong) {
-    color: var(--color-text);
+    color: var(--color-ink);
   }
 
   :global(.legal-prose a) {
-    color: var(--color-cobalt);
+    color: var(--color-blue);
     text-decoration: none;
   }
 

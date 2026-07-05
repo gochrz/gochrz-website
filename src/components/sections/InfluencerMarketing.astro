@@ -1,0 +1,75 @@
+---
+const activations = ['Industry creators', 'Operators', 'Consultants', 'Founders', 'Subject matter experts'];
+
+const campaigns = [
+  ['Creator Partnerships', 'Long-term relationships between brands and creators.'],
+  ['Joint Webinars', 'Creators bring the audience. Companies bring the offer.'],
+  ['Content Campaigns', 'Creator-led content distributed across multiple channels.'],
+  ['Event Partnerships', 'Industry personalities integrated into launches and events.'],
+];
+
+const social = ['LinkedIn Content', 'Short Form Video', 'Long Form Content', 'Podcasts', 'Authority Building', 'Personal Branding'];
+---
+
+<section id="influencer" class="bg-white py-20 md:py-28">
+  <div class="section-shell">
+    <div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+      <div class="reveal">
+        <p class="eyebrow text-blue">PILLAR 01 — B2B INFLUENCER MARKETING</p>
+        <h2 class="mt-5 text-4xl font-extrabold leading-tight text-ink sm:text-5xl">
+          Trust is transferred.
+        </h2>
+        <p class="mt-6 text-xl leading-9 text-body">
+          AI can generate anyone's content. Influential creators generate trust.
+        </p>
+        <div class="mt-10 rounded-2xl border border-line bg-[#eff6ff] p-7">
+          <p class="gradient-text text-6xl font-extrabold">1,000+</p>
+          <p class="mt-3 text-lg font-bold text-ink">B2B creators in network</p>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <div class="reveal rounded-2xl border border-line bg-white p-7 shadow-xl shadow-blue/5">
+          <h3 class="text-xl font-extrabold text-ink">We identify and activate</h3>
+          <div class="mt-5 flex flex-wrap gap-3">
+            {
+              activations.map((item) => (
+                <span class="rounded-full bg-[#eff6ff] px-4 py-2 text-sm font-bold text-blue">{item}</span>
+              ))
+            }
+          </div>
+        </div>
+
+        <h3 class="reveal text-xl font-extrabold text-ink">Campaign types</h3>
+        <div class="grid gap-4 sm:grid-cols-2">
+          {
+            campaigns.map(([title, body], index) => (
+              <div class="lift-card reveal p-6 hover:border-blue hover:shadow-lg hover:shadow-blue/15" data-reveal-delay={index * 0.06}>
+                <h3 class="text-lg font-extrabold text-ink">{title}</h3>
+                <p class="mt-3 leading-7 text-body">{body}</p>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="gradient-border reveal overflow-hidden rounded-2xl border border-line bg-white p-7 shadow-xl shadow-violet/10">
+          <p class="eyebrow text-blue">We'll make you famous.</p>
+          <h3 class="mt-4 text-xl font-extrabold text-ink">Social Production for Founders</h3>
+          <p class="mt-3 text-2xl font-extrabold leading-tight text-ink">
+            Turn founders, operators, and creators into media companies.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            {
+              social.map((item) => (
+                <span class="rounded-full bg-surface px-4 py-2 text-sm font-bold text-ink">{item}</span>
+              ))
+            }
+          </div>
+          <p class="mt-7 text-lg font-extrabold text-ink">
+            Faster trust, lower acquisition costs, and higher conversion rates.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

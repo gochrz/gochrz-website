@@ -1,0 +1,380 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "CHRZ home" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - text: CHRZ
+      - navigation "Main" [ref=e5]:
+        - link "Pillars" [ref=e6] [cursor=pointer]:
+          - /url: /#pillars
+        - link "Influencer Marketing" [ref=e7] [cursor=pointer]:
+          - /url: /#influencer
+        - link "Live Events" [ref=e8] [cursor=pointer]:
+          - /url: /#events
+        - link "Revenue" [ref=e9] [cursor=pointer]:
+          - /url: /#revenue
+        - link "Who it's for" [ref=e10] [cursor=pointer]:
+          - /url: /#who
+      - link "Book a Systems Call" [ref=e11] [cursor=pointer]:
+        - /url: https://calendly.com/ben-chrzanowski/chrz-intro-call
+        - text: Book a Systems Call
+        - generic [ref=e12]: →
+  - main [ref=e13]:
+    - generic [ref=e15]:
+      - generic [ref=e16]:
+        - heading "B2B Marketing Designed for the New World" [level=1] [ref=e17]
+        - paragraph [ref=e18]: We help B2B SaaS companies, service businesses, and creator businesses generate revenue through live events, industry personalities, and social content.
+        - generic [ref=e19]:
+          - link "Book a Systems Call" [ref=e20] [cursor=pointer]:
+            - /url: https://calendly.com/ben-chrzanowski/chrz-intro-call
+            - text: Book a Systems Call
+            - generic [ref=e21]: →
+          - link "See the three pillars ↓" [ref=e22] [cursor=pointer]:
+            - /url: "#pillars"
+      - generic [ref=e25]:
+        - heading "Animated hero graphic showing a live webinar with attendees joining in real time, alongside network stats" [level=2] [ref=e26]
+        - generic [ref=e29]: Live now
+        - generic [ref=e30]:
+          - generic [ref=e31]:
+            - generic [ref=e32]: "843"
+            - generic [ref=e33]: attendees
+          - generic [ref=e35]: MR
+        - paragraph [ref=e36]: Maya R. just joined
+        - generic [ref=e37]:
+          - generic [ref=e38]:
+            - paragraph [ref=e39]: 1,000+
+            - paragraph [ref=e40]: B2B creators in network
+          - generic [ref=e41]:
+            - paragraph [ref=e42]: 1,000+
+            - paragraph [ref=e43]: Live hours
+    - generic [ref=e45]:
+      - heading "Our business is built around three pillars that work together." [level=2] [ref=e47]
+      - generic [ref=e48]:
+        - link "01 B2B Influencer Marketing Trust is transferred. Explore" [ref=e50] [cursor=pointer]:
+          - /url: "#influencer"
+          - generic [ref=e51]:
+            - img [ref=e53]
+            - generic [ref=e55]: "01"
+          - heading "B2B Influencer Marketing" [level=3] [ref=e56]
+          - paragraph [ref=e57]: Trust is transferred.
+          - generic [ref=e58]:
+            - text: Explore
+            - img [ref=e59]
+          - img [ref=e62]
+        - link "02 Digital Live Events Trust is built live. Explore" [ref=e64] [cursor=pointer]:
+          - /url: "#events"
+          - generic [ref=e65]:
+            - img [ref=e67]
+            - generic [ref=e69]: "02"
+          - heading "Digital Live Events" [level=3] [ref=e70]
+          - paragraph [ref=e71]: Trust is built live.
+          - generic [ref=e72]:
+            - text: Explore
+            - img [ref=e73]
+          - img [ref=e76]
+        - link "03 Revenue Expansion Take the trust you have and scale it. Explore" [ref=e78] [cursor=pointer]:
+          - /url: "#revenue"
+          - generic [ref=e79]:
+            - img [ref=e81]
+            - generic [ref=e83]: "03"
+          - heading "Revenue Expansion" [level=3] [ref=e84]
+          - paragraph [ref=e85]: Take the trust you have and scale it.
+          - generic [ref=e86]:
+            - text: Explore
+            - img [ref=e87]
+      - paragraph [ref=e89]: Each can be used independently, but they're most powerful when combined into a single growth system.
+    - generic [ref=e91]:
+      - generic [ref=e92]:
+        - heading "There's a lot of AI slop." [level=2] [ref=e93]
+        - paragraph [ref=e94]: Endless options, endless information, and endless reasons to wait. Businesses are overwhelmed with choices, skeptical of claims, and harder to convince than ever before.
+      - generic [ref=e95]:
+        - generic [ref=e96]:
+          - generic [ref=e97]:
+            - img [ref=e99]
+            - paragraph [ref=e101]: Endless AI-generated options
+          - generic [ref=e102]:
+            - img [ref=e104]
+            - paragraph [ref=e106]: Buyers skeptical of every claim
+          - generic [ref=e107]:
+            - img [ref=e109]
+            - paragraph [ref=e111]: Sales cycles longer than ever
+        - paragraph [ref=e112]: That's why we focus on live events and influencer marketing.
+        - paragraph [ref=e114]: We're creating experiences that build trust at scale, shorten sales cycles, and turn attention into revenue.
+    - generic [ref=e116]:
+      - generic [ref=e117]:
+        - generic [ref=e118]:
+          - img [ref=e119]
+          - paragraph [ref=e121]: PILLAR 01 — B2B INFLUENCER MARKETING
+        - heading "Trust is transferred." [level=2] [ref=e122]
+        - paragraph [ref=e123]: AI can generate anyone's content. Influential creators generate trust.
+      - generic [ref=e125]:
+        - img [ref=e126]
+        - img [ref=e138]
+        - paragraph [ref=e140]: CREATOR
+        - img [ref=e142]
+        - paragraph [ref=e144]: YOUR BRAND
+        - paragraph [ref=e148]: THEIR AUDIENCE
+      - generic [ref=e149]:
+        - generic [ref=e150]:
+          - paragraph [ref=e151]: 0+
+          - paragraph [ref=e152]: B2B creators in network
+        - img [ref=e154]
+      - generic [ref=e156]:
+        - heading "We identify and activate" [level=3] [ref=e157]
+        - generic [ref=e158]:
+          - generic [ref=e159]: Industry creators
+          - generic [ref=e160]: Operators
+          - generic [ref=e161]: Consultants
+          - generic [ref=e162]: Founders
+          - generic [ref=e163]: Subject matter experts
+      - generic [ref=e164]:
+        - heading "Campaign types" [level=3] [ref=e165]
+        - generic [ref=e166]:
+          - generic [ref=e167]:
+            - img [ref=e169]
+            - heading "Creator Partnerships" [level=4] [ref=e171]
+            - paragraph [ref=e172]: Long-term relationships between brands and creators.
+          - generic [ref=e173]:
+            - img [ref=e175]
+            - heading "Joint Webinars" [level=4] [ref=e177]
+            - paragraph [ref=e178]: Creators bring the audience. Companies bring the offer.
+          - generic [ref=e179]:
+            - img [ref=e181]
+            - heading "Content Campaigns" [level=4] [ref=e183]
+            - paragraph [ref=e184]: Creator-led content distributed across multiple channels.
+          - generic [ref=e185]:
+            - img [ref=e187]
+            - heading "Event Partnerships" [level=4] [ref=e189]
+            - paragraph [ref=e190]: Industry personalities integrated into launches and events.
+      - generic [ref=e192]:
+        - generic [ref=e193]:
+          - img [ref=e194]
+          - paragraph [ref=e196]: We'll make you famous
+        - paragraph [ref=e197]: Social Production for Founders
+        - heading "Turn founders, operators, and creators into media companies." [level=3] [ref=e198]
+        - generic [ref=e199]:
+          - generic [ref=e200]: LinkedIn Content
+          - generic [ref=e201]: Short Form Video
+          - generic [ref=e202]: Long Form Content
+          - generic [ref=e203]: Podcasts
+          - generic [ref=e204]: Authority Building
+          - generic [ref=e205]: Personal Branding
+        - paragraph [ref=e206]:
+          - text: Faster trust, lower acquisition costs, and higher conversion rates.
+          - img [ref=e207]
+    - region "Proof points" [ref=e209]:
+      - generic [ref=e210]:
+        - generic [ref=e211]:
+          - generic [ref=e212]:
+            - generic [ref=e213]: ●
+            - generic [ref=e214]: 1,000+ B2B creators in network
+          - generic [ref=e215]:
+            - generic [ref=e216]: ●
+            - generic [ref=e217]: $10M+ GMV through webinars
+          - generic [ref=e218]:
+            - generic [ref=e219]: ●
+            - generic [ref=e220]: 1,000+ live hours
+          - generic [ref=e221]:
+            - generic [ref=e222]: ●
+            - generic [ref=e223]: Trust → Trust → Revenue
+        - generic [ref=e224]:
+          - generic [ref=e225]:
+            - generic [ref=e226]: ●
+            - generic [ref=e227]: 1,000+ B2B creators in network
+          - generic [ref=e228]:
+            - generic [ref=e229]: ●
+            - generic [ref=e230]: $10M+ GMV through webinars
+          - generic [ref=e231]:
+            - generic [ref=e232]: ●
+            - generic [ref=e233]: 1,000+ live hours
+          - generic [ref=e234]:
+            - generic [ref=e235]: ●
+            - generic [ref=e236]: Trust → Trust → Revenue
+    - generic [ref=e239]:
+      - generic [ref=e240]:
+        - generic [ref=e241]:
+          - img [ref=e243]
+          - paragraph [ref=e245]: PILLAR 02 — DIGITAL LIVE EVENTS
+        - heading "Trust is built live." [level=2] [ref=e246]
+        - paragraph [ref=e247]: In a world of AI-generated content, real interaction stands out, deepens connection, and scales.
+        - paragraph [ref=e248]: Fully scripted and produced by us. Designed to reshape how attendees think, build conviction, and convert them into subscription and high-ticket customers — all in 60 minutes.
+        - paragraph [ref=e249]: A repeatable revenue engine that doesn't rely on more sales calls.
+      - generic [ref=e250]:
+        - heading "We build" [level=3] [ref=e251]
+        - generic [ref=e252]:
+          - generic [ref=e253]:
+            - img [ref=e254]
+            - generic [ref=e256]: Live webinars
+          - generic [ref=e257]:
+            - img [ref=e258]
+            - generic [ref=e260]: Virtual workshops
+          - generic [ref=e261]:
+            - img [ref=e262]
+            - generic [ref=e264]: Product launches
+          - generic [ref=e265]:
+            - img [ref=e266]
+            - generic [ref=e268]: Customer events
+          - generic [ref=e269]:
+            - img [ref=e270]
+            - generic [ref=e272]: Founder presentations
+          - generic [ref=e273]:
+            - img [ref=e274]
+            - generic [ref=e276]: Automated webinar funnels
+          - generic [ref=e277]:
+            - img [ref=e278]
+            - generic [ref=e280]: Live-to-evergreen systems
+        - generic [ref=e281]:
+          - generic [ref=e282]:
+            - img [ref=e283]
+            - paragraph [ref=e285]: $10M+
+            - paragraph [ref=e286]: GMV through webinars
+          - generic [ref=e287]:
+            - img [ref=e288]
+            - paragraph [ref=e290]: 1,000+
+            - paragraph [ref=e291]: live hours
+    - generic [ref=e293]:
+      - generic [ref=e294]:
+        - generic [ref=e295]:
+          - img [ref=e297]
+          - paragraph [ref=e299]: PILLAR 03 — REVENUE EXPANSION
+        - heading "Take the trust you have and scale it." [level=2] [ref=e300]
+        - paragraph [ref=e301]: Turn existing trust into new revenue streams. SaaS, services, education — scale by offering more to those who already trust you.
+      - heading "What we build" [level=3] [ref=e302]
+      - generic [ref=e303]:
+        - generic [ref=e304]:
+          - img [ref=e306]
+          - heading "High-Ticket Offers" [level=3] [ref=e308]
+          - paragraph [ref=e309]: Package expertise into premium products.
+          - list [ref=e310]:
+            - listitem [ref=e311]:
+              - img [ref=e312]
+              - text: Consulting
+            - listitem [ref=e314]:
+              - img [ref=e315]
+              - text: Advisory
+            - listitem [ref=e317]:
+              - img [ref=e318]
+              - text: Coaching
+            - listitem [ref=e320]:
+              - img [ref=e321]
+              - text: Implementation
+            - listitem [ref=e323]:
+              - img [ref=e324]
+              - text: Done-with-you services
+        - generic [ref=e326]:
+          - img [ref=e328]
+          - heading "Education Businesses" [level=3] [ref=e330]
+          - paragraph [ref=e331]: Monetize knowledge.
+          - list [ref=e332]:
+            - listitem [ref=e333]:
+              - img [ref=e334]
+              - text: Courses
+            - listitem [ref=e336]:
+              - img [ref=e337]
+              - text: Communities
+            - listitem [ref=e339]:
+              - img [ref=e340]
+              - text: Cohorts
+            - listitem [ref=e342]:
+              - img [ref=e343]
+              - text: Memberships
+            - listitem [ref=e345]:
+              - img [ref=e346]
+              - text: Certifications
+        - generic [ref=e348]:
+          - img [ref=e350]
+          - heading "Service Expansion" [level=3] [ref=e352]
+          - paragraph [ref=e353]: Grow what clients already buy.
+          - list [ref=e354]:
+            - listitem [ref=e355]:
+              - img [ref=e356]
+              - text: Retainers
+            - listitem [ref=e358]:
+              - img [ref=e359]
+              - text: Managed services
+            - listitem [ref=e361]:
+              - img [ref=e362]
+              - text: Licensing
+            - listitem [ref=e364]:
+              - img [ref=e365]
+              - text: Audits
+            - listitem [ref=e367]:
+              - img [ref=e368]
+              - text: Fractional services
+      - generic [ref=e370]:
+        - img [ref=e371]
+        - generic [ref=e373]:
+          - img [ref=e374]
+          - paragraph [ref=e376]: FOR CREATORS
+        - heading "Monetize your audience the right way. Sell education live." [level=3] [ref=e377]
+        - paragraph [ref=e378]: Education monetization — turn audiences into businesses.
+        - generic [ref=e379]:
+          - generic [ref=e380]:
+            - img [ref=e381]
+            - text: Courses
+          - generic [ref=e383]:
+            - img [ref=e384]
+            - text: Communities
+          - generic [ref=e386]:
+            - img [ref=e387]
+            - text: Masterminds
+          - generic [ref=e389]:
+            - img [ref=e390]
+            - text: Events
+      - paragraph [ref=e392]: Additional revenue streams built on assets you already own.
+    - generic [ref=e394]:
+      - heading "Most agencies specialize in one piece. We connect all three." [level=2] [ref=e396]
+      - generic [ref=e397]:
+        - generic [ref=e399]:
+          - img [ref=e401]
+          - heading "Step 1 — Create trust" [level=3] [ref=e403]
+          - paragraph [ref=e404]: Through influencer partnerships, paid media, and organic content.
+        - generic [ref=e405]:
+          - img [ref=e407]
+          - heading "Step 2 — Deepen trust" [level=3] [ref=e409]
+          - paragraph [ref=e410]: Through webinars, workshops, live training, and events with that creator.
+        - generic [ref=e411]:
+          - img [ref=e413]
+          - heading "Step 3 — Monetize trust" [level=3] [ref=e415]
+          - paragraph [ref=e416]: Through compelling offers built around clear outcomes.
+      - paragraph [ref=e417]: Trust → Trust → Revenue
+    - generic [ref=e419]:
+      - heading "Who we work with" [level=2] [ref=e421]
+      - generic [ref=e422]:
+        - generic [ref=e423]:
+          - img [ref=e425]
+          - heading "SaaS Companies" [level=3] [ref=e427]
+          - paragraph [ref=e428]: Get more subscriptions and generate additional revenue streams beyond subscriptions.
+        - generic [ref=e429]:
+          - img [ref=e431]
+          - heading "Service Businesses" [level=3] [ref=e433]
+          - paragraph [ref=e434]: Create scalable acquisition channels beyond referrals.
+        - generic [ref=e435]:
+          - img [ref=e437]
+          - heading "Creator Businesses" [level=3] [ref=e439]
+          - paragraph [ref=e440]: Turn audiences into dollars.
+    - generic [ref=e443]:
+      - generic [ref=e444]:
+        - img [ref=e446]
+        - img [ref=e450]
+        - img [ref=e454]
+      - heading "Ready to build your growth system?" [level=2] [ref=e456]
+      - paragraph [ref=e457]: Book a call and we'll map the three pillars to your business.
+      - link "Book a Systems Call" [ref=e458] [cursor=pointer]:
+        - /url: https://calendly.com/ben-chrzanowski/chrz-intro-call
+        - img [ref=e459]
+        - text: Book a Systems Call
+        - generic [ref=e461]: →
+  - contentinfo [ref=e462]:
+    - generic [ref=e464]:
+      - generic [ref=e465]:
+        - link "CHRZ home" [ref=e466] [cursor=pointer]:
+          - /url: "#top"
+          - text: CHRZ
+        - paragraph [ref=e467]: B2B marketing built around trust, live events, and revenue expansion.
+      - generic [ref=e468]:
+        - link "Privacy" [ref=e469] [cursor=pointer]:
+          - /url: /privacy
+        - link "Terms" [ref=e470] [cursor=pointer]:
+          - /url: /terms
+        - generic [ref=e471]: © 2026 CHRZ

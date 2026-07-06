@@ -2,43 +2,49 @@
 import { Icon } from 'astro-icon/components';
 
 const frictions = [
-  ['lucide:bot', 'Endless AI-generated options'],
-  ['lucide:shield-question', 'Buyers skeptical of every claim'],
-  ['lucide:hourglass', 'Sales cycles longer than ever'],
+  ['lucide:bot', 'Endless AI-generated options', 'bg-[#eff6ff] text-blue'],
+  ['lucide:shield-question', 'Buyers skeptical of every claim', 'bg-[#f5f3ff] text-violet'],
+  ['lucide:hourglass', 'Sales cycles longer than ever', 'bg-[#ecfdf5] text-emerald'],
 ];
 ---
 
 <section class="bg-surface py-20 md:py-28">
-  <div class="section-shell">
-    <div class="reveal max-w-4xl">
-      <p class="eyebrow text-blue">THE PROBLEM</p>
-      <h2 class="mt-5 text-4xl font-extrabold leading-tight text-ink sm:text-5xl">
+  <div class="section-shell grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+    <div class="reveal">
+      <h2 class="text-4xl font-extrabold leading-tight text-ink sm:text-5xl">
         There's a lot of AI slop.
       </h2>
-      <p class="mt-7 max-w-3xl text-xl leading-9 text-body">
+      <p class="mt-7 max-w-xl text-xl leading-9 text-body">
         Endless options, endless information, and endless reasons to wait. Businesses are overwhelmed with choices, skeptical of claims, and harder to convince than ever before.
       </p>
+    </div>
 
-      <div class="mt-9 grid gap-4 sm:grid-cols-3">
+    <div class="space-y-5">
+      <div class="reveal rounded-2xl border border-line bg-white p-4 shadow-xl shadow-blue/5 sm:p-5">
         {
-          frictions.map(([icon, label], index) => (
-            <div class="reveal flex items-center gap-3.5 border-t-2 border-line pt-4" data-reveal-delay={index * 0.06}>
-              <Icon name={icon} class="h-6 w-6 flex-none text-body" aria-hidden="true" />
+          frictions.map(([icon, label, tone], index) => (
+            <div class="flex items-center gap-4 px-2 py-3" data-reveal-delay={index * 0.06}>
+              <span class={`flex h-10 w-10 flex-none items-center justify-center rounded-xl ${tone}`}>
+                <Icon name={icon} class="h-5 w-5" aria-hidden="true" />
+              </span>
               <p class="text-base font-bold leading-6 text-ink">{label}</p>
             </div>
           ))
         }
       </div>
 
-      <p class="mt-10 text-2xl font-extrabold leading-tight text-ink">
+      <p class="reveal px-1 text-lg font-extrabold leading-snug text-ink" data-reveal-delay="0.08">
         That's why we focus on live events and influencer marketing.
       </p>
-      <p
-        class="gradient-border mt-10 max-w-4xl rounded-2xl p-8 text-2xl font-extrabold leading-snug text-ink shadow-xl shadow-blue/10 sm:text-3xl"
-        style="background: linear-gradient(135deg, #eff6ff, #f5f3ff 55%, #ffffff)"
+
+      <div
+        class="reveal rounded-2xl border border-line border-l-4 border-l-blue bg-white p-7 shadow-xl shadow-blue/10"
+        data-reveal-delay="0.14"
       >
-        We're creating experiences that build <span class="gradient-text">trust at scale</span>, shorten sales cycles, and turn attention into revenue.
-      </p>
+        <p class="text-xl font-extrabold leading-snug text-ink sm:text-2xl">
+          We're creating experiences that build <span class="gradient-text">trust at scale</span>, shorten sales cycles, and turn attention into revenue.
+        </p>
+      </div>
     </div>
   </div>
 </section>

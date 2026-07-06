@@ -1,5 +1,11 @@
 ---
+import { Icon } from 'astro-icon/components';
 
+const frictions = [
+  ['lucide:bot', 'Endless AI-generated options'],
+  ['lucide:shield-question', 'Buyers skeptical of every claim'],
+  ['lucide:hourglass', 'Sales cycles longer than ever'],
+];
 ---
 
 <section class="bg-surface py-20 md:py-28">
@@ -12,7 +18,19 @@
       <p class="mt-7 max-w-3xl text-xl leading-9 text-body">
         Endless options, endless information, and endless reasons to wait. Businesses are overwhelmed with choices, skeptical of claims, and harder to convince than ever before.
       </p>
-      <p class="mt-6 text-2xl font-extrabold leading-tight text-ink">
+
+      <div class="mt-9 grid gap-4 sm:grid-cols-3">
+        {
+          frictions.map(([icon, label], index) => (
+            <div class="reveal flex items-center gap-3.5 border-t-2 border-line pt-4" data-reveal-delay={index * 0.06}>
+              <Icon name={icon} class="h-6 w-6 flex-none text-body" aria-hidden="true" />
+              <p class="text-base font-bold leading-6 text-ink">{label}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <p class="mt-10 text-2xl font-extrabold leading-tight text-ink">
         That's why we focus on live events and influencer marketing.
       </p>
       <p

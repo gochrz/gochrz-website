@@ -1,8 +1,10 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 const steps = [
-  ['Step 1 — Create trust', 'Through influencer partnerships, paid media, and organic content.', 'bg-blue'],
-  ['Step 2 — Deepen trust', 'Through webinars, workshops, live training, and events with that creator.', 'bg-violet'],
-  ['Step 3 — Monetize trust', 'Through compelling offers built around clear outcomes.', 'bg-emerald'],
+  ['lucide:user-plus', 'Step 1 — Create trust', 'Through influencer partnerships, paid media, and organic content.', 'bg-blue'],
+  ['lucide:radio', 'Step 2 — Deepen trust', 'Through webinars, workshops, live training, and events with that creator.', 'bg-violet'],
+  ['lucide:banknote', 'Step 3 — Monetize trust', 'Through compelling offers built around clear outcomes.', 'bg-emerald'],
 ];
 ---
 
@@ -15,14 +17,14 @@ const steps = [
     </div>
 
     <div class="relative mt-14 grid gap-6 lg:grid-cols-3">
-      <div class="absolute left-8 right-8 top-1/2 hidden h-1 -translate-y-1/2 rounded-full bg-slate-700 lg:block" aria-hidden="true">
+      <div class="absolute left-8 right-8 top-[3.75rem] hidden h-1 rounded-full bg-slate-700 lg:block" aria-hidden="true">
         <span class="block h-full w-0 rounded-full bg-gradient-to-r from-blue via-violet to-cyan" data-trust-line></span>
       </div>
       {
-        steps.map(([title, body, badgeClass], index) => (
-          <div class="reveal relative rounded-2xl border border-white/10 bg-white/5 p-7 shadow-2xl shadow-black/20" data-trust-step data-reveal-delay={index * 0.08}>
-            <div class={`mb-8 flex h-14 w-14 items-center justify-center rounded-2xl text-xl font-extrabold text-white ${badgeClass}`}>
-              {index + 1}
+        steps.map(([icon, title, body, badgeClass], index) => (
+          <div class="reveal relative rounded-2xl border border-white/10 bg-[#1a2338] p-7 shadow-2xl shadow-black/20" data-trust-step data-reveal-delay={index * 0.08}>
+            <div class={`mb-8 flex h-14 w-14 items-center justify-center rounded-2xl text-white ${badgeClass}`}>
+              <Icon name={icon} class="h-7 w-7" aria-hidden="true" />
             </div>
             <h3 class="text-2xl font-extrabold text-white">{title}</h3>
             <p class="mt-4 leading-8 text-slate-300">{body}</p>
@@ -31,7 +33,7 @@ const steps = [
       }
     </div>
 
-    <p class="reveal gradient-text--bright mt-16 text-center text-5xl font-extrabold leading-tight sm:text-6xl lg:text-7xl">
+    <p class="reveal gradient-text--bright mt-16 text-center font-display text-5xl font-extrabold leading-tight sm:text-6xl lg:text-7xl">
       Trust → Trust → Revenue
     </p>
   </div>

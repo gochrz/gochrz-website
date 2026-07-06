@@ -1,19 +1,24 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 const groups = [
   {
-    barClass: 'bg-blue',
+    icon: 'lucide:app-window',
+    chipClass: 'bg-[#eff6ff] text-blue',
     hoverClass: 'hover:border-blue hover:shadow-blue/15',
     title: 'SaaS Companies',
     body: 'Get more subscriptions and generate additional revenue streams beyond subscriptions.',
   },
   {
-    barClass: 'bg-violet',
+    icon: 'lucide:briefcase-business',
+    chipClass: 'bg-[#f5f3ff] text-violet',
     hoverClass: 'hover:border-violet hover:shadow-violet/15',
     title: 'Service Businesses',
     body: 'Create scalable acquisition channels beyond referrals.',
   },
   {
-    barClass: 'bg-emerald',
+    icon: 'lucide:video',
+    chipClass: 'bg-[#ecfdf5] text-emerald',
     hoverClass: 'hover:border-emerald hover:shadow-emerald/15',
     title: 'Creator Businesses',
     body: 'Turn audiences into dollars.',
@@ -32,8 +37,10 @@ const groups = [
       {
         groups.map((group, index) => (
           <div class={`lift-card reveal p-7 hover:shadow-xl ${group.hoverClass}`} data-reveal-delay={index * 0.08}>
-            <span class={`block h-2 w-16 rounded-full ${group.barClass}`}></span>
-            <h3 class="mt-8 text-2xl font-extrabold text-ink">{group.title}</h3>
+            <span class={`flex h-12 w-12 items-center justify-center rounded-xl ${group.chipClass}`}>
+              <Icon name={group.icon} class="h-6 w-6" aria-hidden="true" />
+            </span>
+            <h3 class="mt-6 text-2xl font-extrabold text-ink">{group.title}</h3>
             <p class="mt-4 leading-8 text-body">{group.body}</p>
           </div>
         ))

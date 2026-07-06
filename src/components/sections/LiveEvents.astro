@@ -1,12 +1,14 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 const builds = [
-  'Live webinars',
-  'Virtual workshops',
-  'Product launches',
-  'Customer events',
-  'Founder presentations',
-  'Automated webinar funnels',
-  'Live-to-evergreen systems',
+  ['lucide:monitor-play', 'Live webinars'],
+  ['lucide:laptop', 'Virtual workshops'],
+  ['lucide:rocket', 'Product launches'],
+  ['lucide:users', 'Customer events'],
+  ['lucide:mic', 'Founder presentations'],
+  ['lucide:workflow', 'Automated webinar funnels'],
+  ['lucide:repeat', 'Live-to-evergreen systems'],
 ];
 ---
 
@@ -14,8 +16,13 @@ const builds = [
   <div class="section-shell">
     <div class="grid gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-start">
       <div class="reveal">
-        <p class="eyebrow text-violet">PILLAR 02 — DIGITAL LIVE EVENTS</p>
-        <h2 class="mt-5 text-4xl font-extrabold leading-tight text-ink sm:text-5xl">
+        <div class="flex items-center gap-3">
+          <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#f5f3ff] text-violet">
+            <Icon name="lucide:radio" class="h-6 w-6" aria-hidden="true" />
+          </span>
+          <p class="eyebrow text-violet">PILLAR 02 — DIGITAL LIVE EVENTS</p>
+        </div>
+        <h2 class="mt-6 text-4xl font-extrabold leading-tight text-ink sm:text-5xl">
           Trust is built live.
         </h2>
         <p class="mt-6 text-xl leading-9 text-body">
@@ -33,21 +40,31 @@ const builds = [
         <h3 class="text-xl font-extrabold text-ink">We build</h3>
         <div class="mt-6 grid gap-3">
           {
-            builds.map((item) => (
-              <div class="flex items-center gap-3 rounded-xl bg-[#f5f3ff] px-4 py-3 text-sm font-bold text-ink">
-                <span class="h-2.5 w-2.5 rounded-full bg-violet"></span>
+            builds.map(([icon, item]) => (
+              <div class="flex items-center gap-3.5 rounded-xl bg-[#f5f3ff] px-4 py-3 text-sm font-bold text-ink">
+                <Icon name={icon} class="h-5 w-5 flex-none text-violet" aria-hidden="true" />
                 <span>{item}</span>
               </div>
             ))
           }
         </div>
         <div class="mt-7 grid gap-4 sm:grid-cols-2">
-          <div class="rounded-2xl border border-line p-5">
-            <p class="gradient-text text-4xl font-extrabold">$10M+</p>
+          <div class="relative overflow-hidden rounded-2xl border border-line p-5">
+            <Icon
+              name="lucide:chart-no-axes-combined"
+              class="absolute -bottom-3 -right-3 h-20 w-20 text-violet opacity-[0.08]"
+              aria-hidden="true"
+            />
+            <p class="gradient-text font-display text-4xl font-extrabold">$10M+</p>
             <p class="mt-2 font-bold text-body">GMV through webinars</p>
           </div>
-          <div class="rounded-2xl border border-line p-5">
-            <p class="gradient-text text-4xl font-extrabold">1,000+</p>
+          <div class="relative overflow-hidden rounded-2xl border border-line p-5">
+            <Icon
+              name="lucide:signal"
+              class="absolute -bottom-3 -right-3 h-20 w-20 text-violet opacity-[0.08]"
+              aria-hidden="true"
+            />
+            <p class="gradient-text font-display text-4xl font-extrabold">1,000+</p>
             <p class="mt-2 font-bold text-body">live hours</p>
           </div>
         </div>

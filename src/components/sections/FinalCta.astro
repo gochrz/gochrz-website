@@ -1,5 +1,13 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 const calendlyUrl = 'https://calendly.com/ben-chrzanowski/chrz-intro-call';
+
+const pillarIcons = [
+  ['lucide:users', 'bg-blue'],
+  ['lucide:radio', 'bg-violet'],
+  ['lucide:trending-up', 'bg-emerald'],
+];
 ---
 
 <section id="book" class="relative overflow-hidden bg-ink py-20 text-white md:py-28">
@@ -11,13 +19,26 @@ const calendlyUrl = 'https://calendly.com/ben-chrzanowski/chrz-intro-call';
   </div>
   <div class="section-shell relative text-center">
     <div class="reveal mx-auto max-w-4xl">
-      <h2 class="text-4xl font-extrabold leading-tight sm:text-5xl">
+      <div class="mx-auto flex w-fit items-center gap-2" aria-hidden="true">
+        {
+          pillarIcons.map(([icon, badgeClass], index) => (
+            <>
+              <span class={`flex h-10 w-10 items-center justify-center rounded-xl text-white ${badgeClass}`}>
+                <Icon name={icon} class="h-5 w-5" />
+              </span>
+              {index < 2 && <span class="h-px w-6 bg-slate-600" />}
+            </>
+          ))
+        }
+      </div>
+      <h2 class="mt-8 text-4xl font-extrabold leading-tight sm:text-5xl">
         Ready to build your growth system?
       </h2>
       <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
         Book a call and we'll map the three pillars to your business.
       </p>
       <a href={calendlyUrl} target="_blank" rel="noopener" class="primary-button group mt-10">
+        <Icon name="lucide:calendar" class="h-5 w-5" aria-hidden="true" />
         Book a Systems Call
         <span aria-hidden="true" class="button-arrow">→</span>
       </a>

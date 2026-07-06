@@ -1,33 +1,38 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 const pillars = [
   {
     number: '01',
+    icon: 'lucide:users',
     title: 'B2B Influencer Marketing',
     tagline: 'Trust is transferred.',
     href: '#influencer',
-    dotClass: 'bg-blue',
     hoverClass: 'hover:border-blue hover:shadow-blue/15',
     textClass: 'text-blue',
+    chipClass: 'bg-[#eff6ff] text-blue',
     tint: '#eff6ff',
   },
   {
     number: '02',
+    icon: 'lucide:radio',
     title: 'Digital Live Events',
     tagline: 'Trust is built live.',
     href: '#events',
-    dotClass: 'bg-violet',
     hoverClass: 'hover:border-violet hover:shadow-violet/15',
     textClass: 'text-violet',
+    chipClass: 'bg-[#f5f3ff] text-violet',
     tint: '#f5f3ff',
   },
   {
     number: '03',
+    icon: 'lucide:trending-up',
     title: 'Revenue Expansion',
     tagline: 'Take the trust you have and scale it.',
     href: '#revenue',
-    dotClass: 'bg-emerald',
     hoverClass: 'hover:border-emerald hover:shadow-emerald/15',
     textClass: 'text-emerald',
+    chipClass: 'bg-[#ecfdf5] text-emerald',
     tint: '#ecfdf5',
   },
 ];
@@ -41,25 +46,39 @@ const pillars = [
       </h2>
     </div>
 
-    <div class="mt-14 grid gap-6 md:grid-cols-3">
+    <div class="relative mt-14 grid gap-10 md:grid-cols-3 md:gap-6">
+      <div
+        class="absolute left-[16.66%] right-[16.66%] top-16 hidden border-t-2 border-dashed border-line md:block"
+        aria-hidden="true"
+      ></div>
       {
         pillars.map((pillar, index) => (
           <a
             href={pillar.href}
-            class={`lift-card reveal group flex flex-col p-8 hover:shadow-xl ${pillar.hoverClass}`}
+            class={`lift-card reveal group relative flex flex-col p-8 hover:shadow-xl ${pillar.hoverClass}`}
             style={`background: linear-gradient(180deg, ${pillar.tint}, #ffffff 55%)`}
             data-reveal-delay={index * 0.08}
           >
-            <div class="flex items-center justify-between gap-4">
-              <span class={`text-5xl font-extrabold ${pillar.textClass}`}>{pillar.number}</span>
-              <span class={`h-3.5 w-3.5 rounded-full ${pillar.dotClass}`}></span>
+            <div class="flex items-start justify-between gap-4">
+              <span class={`flex h-16 w-16 items-center justify-center rounded-2xl ${pillar.chipClass}`}>
+                <Icon name={pillar.icon} class="h-8 w-8" aria-hidden="true" />
+              </span>
+              <span class={`font-display text-xl font-extrabold tracking-tight ${pillar.textClass}`}>{pillar.number}</span>
             </div>
-            <h3 class="mt-10 text-2xl font-extrabold leading-tight text-ink">{pillar.title}</h3>
+            <h3 class="mt-8 text-2xl font-extrabold leading-tight text-ink">{pillar.title}</h3>
             <p class="mt-3 text-lg font-semibold leading-7 text-body">{pillar.tagline}</p>
-            <span class={`mt-8 inline-flex items-center gap-2 text-sm font-extrabold ${pillar.textClass}`}>
+            <span class={`mt-auto inline-flex items-center gap-2 pt-8 text-sm font-extrabold ${pillar.textClass}`}>
               Explore
-              <span aria-hidden="true" class="transition-transform group-hover:translate-x-1">→</span>
+              <Icon name="lucide:arrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
             </span>
+            {index < 2 && (
+              <span
+                class="absolute -bottom-8 left-1/2 -translate-x-1/2 rotate-90 text-body md:-right-[1.4rem] md:bottom-auto md:left-auto md:top-14 md:translate-x-0 md:rotate-0"
+                aria-hidden="true"
+              >
+                <Icon name="lucide:chevrons-right" class="h-6 w-6" />
+              </span>
+            )}
           </a>
         ))
       }

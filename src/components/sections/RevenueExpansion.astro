@@ -1,28 +1,45 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 const offers = [
   {
+    icon: 'lucide:gem',
     title: 'High-Ticket Offers',
     body: 'Package expertise into premium products.',
-    chips: ['Consulting', 'Advisory', 'Coaching', 'Implementation', 'Done-with-you services'],
+    items: ['Consulting', 'Advisory', 'Coaching', 'Implementation', 'Done-with-you services'],
   },
   {
+    icon: 'lucide:graduation-cap',
     title: 'Education Businesses',
     body: 'Monetize knowledge.',
-    chips: ['Courses', 'Communities', 'Cohorts', 'Memberships', 'Certifications'],
+    items: ['Courses', 'Communities', 'Cohorts', 'Memberships', 'Certifications'],
   },
   {
+    icon: 'lucide:layers',
     title: 'Service Expansion',
-    body: '',
-    chips: ['Retainers', 'Managed services', 'Licensing', 'Audits', 'Fractional services'],
+    body: 'Grow what clients already buy.',
+    items: ['Retainers', 'Managed services', 'Licensing', 'Audits', 'Fractional services'],
   },
+];
+
+const creatorFormats = [
+  ['lucide:book-open', 'Courses'],
+  ['lucide:users', 'Communities'],
+  ['lucide:brain', 'Masterminds'],
+  ['lucide:calendar-days', 'Events'],
 ];
 ---
 
 <section id="revenue" class="bg-white py-20 md:py-28">
   <div class="section-shell">
     <div class="reveal max-w-4xl">
-      <p class="eyebrow text-emerald">PILLAR 03 — REVENUE EXPANSION</p>
-      <h2 class="mt-5 text-4xl font-extrabold leading-tight text-ink sm:text-5xl">
+      <div class="flex items-center gap-3">
+        <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#ecfdf5] text-emerald">
+          <Icon name="lucide:trending-up" class="h-6 w-6" aria-hidden="true" />
+        </span>
+        <p class="eyebrow text-emerald">PILLAR 03 — REVENUE EXPANSION</p>
+      </div>
+      <h2 class="mt-6 text-4xl font-extrabold leading-tight text-ink sm:text-5xl">
         Take the trust you have and scale it.
       </h2>
       <p class="mt-6 text-xl leading-9 text-body">
@@ -35,20 +52,34 @@ const offers = [
       {
         offers.map((offer, index) => (
           <div class="lift-card reveal p-7 hover:border-emerald hover:shadow-xl hover:shadow-emerald/15" data-reveal-delay={index * 0.08}>
-            <h3 class="text-2xl font-extrabold text-ink">{offer.title}</h3>
-            {offer.body && <p class="mt-3 leading-7 text-body">{offer.body}</p>}
-            <div class="mt-6 flex flex-wrap gap-3">
-              {offer.chips.map((chip) => (
-                <span class="rounded-full bg-[#ecfdf5] px-3.5 py-2 text-sm font-bold text-emerald">{chip}</span>
+            <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-[#ecfdf5] text-emerald">
+              <Icon name={offer.icon} class="h-6 w-6" aria-hidden="true" />
+            </span>
+            <h3 class="mt-5 text-2xl font-extrabold text-ink">{offer.title}</h3>
+            <p class="mt-3 leading-7 text-body">{offer.body}</p>
+            <ul class="mt-6 space-y-2.5">
+              {offer.items.map((item) => (
+                <li class="flex items-center gap-2.5 text-sm font-bold text-ink">
+                  <Icon name="lucide:check" class="h-4 w-4 flex-none text-emerald" aria-hidden="true" />
+                  {item}
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         ))
       }
     </div>
 
-    <div class="reveal mt-8 rounded-2xl border border-amber bg-[#fffbeb] p-7 shadow-xl shadow-amber/10">
-      <p class="eyebrow text-amber-deep">FOR CREATORS</p>
+    <div class="reveal relative mt-8 overflow-hidden rounded-2xl border border-amber bg-[#fffbeb] p-7 shadow-xl shadow-amber/10">
+      <Icon
+        name="lucide:sparkles"
+        class="absolute -right-8 -top-8 h-40 w-40 text-amber opacity-[0.1]"
+        aria-hidden="true"
+      />
+      <div class="flex items-center gap-2.5">
+        <Icon name="lucide:sparkles" class="h-5 w-5 text-amber-deep" aria-hidden="true" />
+        <p class="eyebrow text-amber-deep">FOR CREATORS</p>
+      </div>
       <h3 class="mt-4 text-3xl font-extrabold leading-tight text-ink">
         Monetize your audience the right way. Sell education live.
       </h3>
@@ -56,9 +87,14 @@ const offers = [
         Education monetization — turn audiences into businesses.
       </p>
       <div class="mt-6 flex flex-wrap gap-3">
-        {['Courses', 'Communities', 'Masterminds', 'Events'].map((chip) => (
-          <span class="rounded-full bg-white px-4 py-2 text-sm font-bold text-ink">{chip}</span>
-        ))}
+        {
+          creatorFormats.map(([icon, chip]) => (
+            <span class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-ink">
+              <Icon name={icon} class="h-4 w-4 text-amber-deep" aria-hidden="true" />
+              {chip}
+            </span>
+          ))
+        }
       </div>
     </div>
 

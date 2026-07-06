@@ -229,36 +229,9 @@ body {
   animation-duration: 24s;
 }
 
-.marquee {
-  display: flex;
-  gap: 0;
-  overflow: hidden;
-}
-
-.marquee__track {
-  display: flex;
-  flex-shrink: 0;
-  min-width: 100%;
-  animation: marquee 40s linear infinite;
-}
-
-.marquee:hover .marquee__track {
-  animation-play-state: paused;
-}
-
 .reveal {
   opacity: 0;
   transform: translateY(28px);
-}
-
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-100%);
-  }
 }
 
 @keyframes drift {
@@ -288,10 +261,6 @@ body {
   .reveal {
     opacity: 1;
     transform: none;
-  }
-
-  .marquee__track {
-    animation: none;
   }
 }
 

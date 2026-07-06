@@ -1,0 +1,421 @@
+---
+const rowA = [
+  {
+    industry: 'B2B AI SaaS',
+    stat: '$100k+ / mo',
+    name: 'Paid Webinar Growth System Installed',
+    funnel: 'Paid Traffic → Webinar → Subscription',
+    channel: 'Paid',
+    desc: 'Replaced scattered acquisition with a single cold-traffic webinar funnel.',
+    result: 'Revenue grew 1.8× week-over-week using one repeatable system.',
+  },
+  {
+    industry: 'EdTech SaaS',
+    stat: '$0 → $100k+ MRR',
+    name: 'Paid-to-Webinar Subscription System Installed',
+    funnel: 'Paid → Webinar → Subscription',
+    channel: 'Paid',
+    desc: 'Bundled software with education and coaching to increase retention and perceived value.',
+    result: 'Six-figure subscription revenue · 2.3× ROAS · 80% lift in user retention.',
+  },
+  {
+    industry: 'MarTech SaaS',
+    stat: '$5k → $20k / mo',
+    name: 'Paid to VSL System Installed',
+    funnel: 'Paid → VSL → Call',
+    channel: 'Paid',
+    desc: 'Changed the positioning of the offer, scripted new ads, and a new VSL.',
+    result: '5× monthly revenue with no increase in ad spend.',
+  },
+  {
+    industry: 'Founder-Led Business',
+    stat: 'Multi-6 Figures',
+    name: 'Service-to-Software System Installed',
+    funnel: 'Authority → Call',
+    channel: 'Organic + Paid',
+    desc: 'Repositioned agency services into scalable software + education offers.',
+    result: 'Used twice to scale two separate companies beyond service ceilings.',
+  },
+  {
+    industry: 'B2B Services',
+    stat: '$0 → $100k / mo',
+    name: 'Outbound Revenue System Installed',
+    funnel: 'Cold Email → Call → Contract',
+    channel: 'Outbound',
+    desc: 'Single cold email funnel with upfront payment + revenue share.',
+    result: '$100k in new revenue from one client relationship.',
+  },
+  {
+    industry: 'Creator Education',
+    stat: '$10k → $100k+ / mo',
+    name: 'Webinar Revenue System Installed',
+    funnel: 'Free Community → Webinar → Offer',
+    channel: 'Organic + Community',
+    desc: 'Scripted a fully translated Spanish webinar funnel with pre-webinar phone calls to every registrant and a new post-webinar call, email, and text sequence.',
+    result: 'Six figures in cash collected and an 8% increase in close rate.',
+  },
+];
+
+const rowB = [
+  {
+    industry: 'Coaching Business',
+    stat: '$45k → $60k / webinar',
+    name: 'Scalable Offer System Installed',
+    funnel: 'Webinar → Offer',
+    channel: 'Organic + Email',
+    desc: 'Rebuilt the offer to reduce 1:1 delivery and increase leverage.',
+    result: 'Higher revenue per webinar with less founder involvement.',
+  },
+  {
+    industry: 'Agency',
+    stat: '$0 → $100k+ / mo',
+    name: 'VSL → Quiz → Call System Installed',
+    funnel: 'VSL → Qualification Quiz → Call',
+    channel: 'Paid + Email',
+    desc: 'Replaced sales-call-only flow with education, qualification, and follow-up sequences.',
+    result: 'Six-figure monthly revenue within 3 months.',
+  },
+  {
+    industry: 'B2B Services',
+    stat: '20 Contracts Closed',
+    name: 'LinkedIn Outbound System Installed',
+    funnel: 'LinkedIn Outreach → Call',
+    channel: 'Organic Outbound',
+    desc: 'Built a repeatable LinkedIn outreach system for a campus-focused business.',
+    result: '20 signed contracts without paid ads.',
+  },
+  {
+    industry: 'Agency Business',
+    stat: '$100k+ / mo',
+    name: 'Email-to-Webinar Monetization System Installed',
+    funnel: 'Email List → Webinar → Offer',
+    channel: 'Email',
+    desc: 'Redirected all list traffic into a single webinar instead of scattered offers.',
+    result: '$100k in revenue from an existing email list.',
+  },
+  {
+    industry: 'B2B Offer',
+    stat: '$1k → $20k / mo',
+    name: 'Offer Leverage System Installed',
+    funnel: 'Existing Funnel + AI Upsell',
+    channel: 'Existing Traffic',
+    desc: 'Added an AI component to an existing offer to increase perceived value.',
+    result: '20× monthly revenue without increasing traffic.',
+  },
+  {
+    industry: 'EdTech Platform',
+    stat: '1× → 1,000× Users',
+    name: 'Organic Distribution System Installed',
+    funnel: 'LinkedIn Content → Direct Response',
+    channel: 'Organic',
+    desc: 'Built a LinkedIn-only growth loop with no paid spend.',
+    result: '1,000× user growth without spending a dollar.',
+  },
+];
+
+const rows = [
+  { cards: rowA, reverse: false },
+  { cards: rowB, reverse: true },
+];
+---
+
+<section class="chrz-exp" aria-label="CHRZ's experience and case studies">
+  <div class="chrz-exp__head reveal">
+    <span class="chrz-exp__pill">Proven Systems</span>
+    <h2 class="chrz-exp__title">CHRZ's <em>Experience</em></h2>
+    <p class="chrz-exp__sub">Case studies also through Chrz's time building Techrupt Innovations and Teachly.</p>
+  </div>
+
+  {
+    rows.map(({ cards, reverse }) => (
+      <div class={`chrz-marquee ${reverse ? 'chrz-marquee--reverse' : ''}`}>
+        {[0, 1].map((copy) => (
+          <div class="chrz-track" aria-hidden={copy === 1 ? 'true' : undefined}>
+            {cards.map((card) => (
+              <article class="chrz-card">
+                <div class="chrz-card__top">
+                  <span class="chrz-card__industry">{card.industry}</span>
+                  <span class="chrz-card__stat">{card.stat}</span>
+                </div>
+                <h3 class="chrz-card__name">{card.name}</h3>
+                <div class="chrz-card__meta">
+                  <span>
+                    <b>Funnel:</b> {card.funnel}
+                  </span>
+                  <span>
+                    <b>Channel:</b> {card.channel}
+                  </span>
+                </div>
+                <p class="chrz-card__desc">{card.desc}</p>
+                <p class="chrz-card__result">{card.result}</p>
+              </article>
+            ))}
+          </div>
+        ))}
+      </div>
+    ))
+  }
+</section>
+
+<style>
+  .chrz-exp {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    padding: 88px 0 96px;
+    /* Fades white → soft warm tint → white so it blends into the
+       sections above and below instead of sitting in a hard box */
+    background: linear-gradient(180deg, #ffffff 0%, #fbf5ea 18%, #faf3e6 50%, #fbf5ea 82%, #ffffff 100%);
+  }
+
+  /* Hairline glows at the seams for a soft hand-off between sections */
+  .chrz-exp::before,
+  .chrz-exp::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(720px, 80%);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #ebddbe, transparent);
+  }
+
+  .chrz-exp::before {
+    top: 0;
+  }
+
+  .chrz-exp::after {
+    bottom: 0;
+  }
+
+  .chrz-exp__head {
+    text-align: center;
+    padding: 0 24px;
+    margin-bottom: 40px;
+  }
+
+  .chrz-exp__pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid #cdc4f5;
+    color: #6d5bd0;
+    background: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 18px;
+  }
+
+  .chrz-exp__pill::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #6d5bd0;
+  }
+
+  .chrz-exp__title {
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #17151f;
+    margin: 0 0 10px;
+  }
+
+  .chrz-exp__title em {
+    font-style: normal;
+    color: #6d5bd0;
+  }
+
+  .chrz-exp__sub {
+    font-size: 13px;
+    color: #8a8494;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  /* ---------- Marquee rows ---------- */
+
+  .chrz-marquee {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  }
+
+  .chrz-marquee + .chrz-marquee {
+    margin-top: 20px;
+  }
+
+  .chrz-track {
+    display: flex;
+    gap: 20px;
+    padding: 4px 10px;
+    flex-shrink: 0;
+    min-width: 100%;
+    animation: chrz-scroll-left 55s linear infinite;
+  }
+
+  .chrz-marquee--reverse .chrz-track {
+    animation-name: chrz-scroll-right;
+  }
+
+  .chrz-marquee:hover .chrz-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes chrz-scroll-left {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-100% - 20px));
+    }
+  }
+
+  @keyframes chrz-scroll-right {
+    from {
+      transform: translateX(calc(-100% - 20px));
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .chrz-track {
+      animation: none;
+    }
+
+    .chrz-marquee {
+      overflow-x: auto;
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+  }
+
+  /* ---------- Cards ---------- */
+
+  .chrz-card {
+    width: 340px;
+    flex-shrink: 0;
+    background: #ffffff;
+    border: 1px solid #f0e4ce;
+    border-radius: 14px;
+    padding: 22px 22px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  .chrz-card:hover {
+    transform: translateY(-4px);
+    border-color: #e4d3ae;
+    box-shadow: 0 12px 28px rgba(60, 44, 10, 0.08);
+  }
+
+  .chrz-card__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .chrz-card__industry {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #b0731e;
+    background: #fbf3e2;
+    border: 1px solid #f2e3c2;
+    padding: 4px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .chrz-card__stat {
+    font-size: 14px;
+    font-weight: 800;
+    color: #2e7d5b;
+    white-space: nowrap;
+  }
+
+  .chrz-card__name {
+    font-family: var(--font-body);
+    font-size: 15.5px;
+    font-weight: 700;
+    color: #17151f;
+    line-height: 1.35;
+    margin: 0;
+    letter-spacing: normal;
+  }
+
+  .chrz-card__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    color: #6d5bd0;
+    font-weight: 600;
+    background: #f6f4fe;
+    border: 1px solid #e7e2fa;
+    border-radius: 8px;
+    padding: 8px 12px;
+  }
+
+  .chrz-card__meta span b {
+    color: #4b3ea8;
+    font-weight: 700;
+  }
+
+  .chrz-card__desc {
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: #6b6572;
+    margin: 0;
+    flex: 1;
+  }
+
+  .chrz-card__result {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #17151f;
+    border-top: 1px dashed #eadfc9;
+    padding-top: 11px;
+    margin: 0;
+    display: flex;
+    gap: 7px;
+    align-items: baseline;
+  }
+
+  .chrz-card__result::before {
+    content: '↗';
+    color: #2e7d5b;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 480px) {
+    .chrz-card {
+      width: 290px;
+    }
+
+    .chrz-exp {
+      padding: 64px 0 72px;
+    }
+  }
+</style>

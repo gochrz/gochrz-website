@@ -2,39 +2,252 @@
 import { Icon } from 'astro-icon/components';
 
 const steps = [
-  ['lucide:user-plus', 'Step 1 — Create trust', 'Through influencer partnerships, paid media, and organic content.', 'bg-blue'],
-  ['lucide:radio', 'Step 2 — Deepen trust', 'Through webinars, workshops, live training, and events with that creator.', 'bg-violet'],
-  ['lucide:banknote', 'Step 3 — Monetize trust', 'Through compelling offers built around clear outcomes.', 'bg-emerald'],
+  {
+    icon: 'lucide:user-plus',
+    num: '01',
+    title: 'Create trust',
+    body: 'Influencer partnerships, paid media, and organic content.',
+    hl: '#afa9ec',
+    iconBg: '#eeedfe',
+    iconColor: '#534ab7',
+  },
+  {
+    icon: 'lucide:radio',
+    num: '02',
+    title: 'Deepen trust',
+    body: 'Webinars, workshops, and live events with that creator.',
+    hl: '#7f77dd',
+    iconBg: '#7f77dd',
+    iconColor: '#eeedfe',
+  },
+  {
+    icon: 'lucide:coins',
+    num: '03',
+    title: 'Monetize trust',
+    body: 'Compelling offers built around clear outcomes.',
+    hl: '#1d9e75',
+    iconBg: '#e1f5ee',
+    iconColor: '#0f6e56',
+  },
 ];
 ---
 
-<section class="bg-ink py-20 text-white md:py-28" data-trust-flow>
+<section class="bg-white py-20 md:py-28">
   <div class="section-shell">
-    <div class="reveal max-w-4xl">
-      <h2 class="text-4xl font-extrabold leading-tight sm:text-5xl">
-        Most agencies specialize in one piece. We connect all three.
-      </h2>
-    </div>
-
-    <div class="relative mt-14 grid gap-6 lg:grid-cols-3">
-      <div class="absolute left-8 right-8 top-[3.75rem] hidden h-1 rounded-full bg-slate-700 lg:block" aria-hidden="true">
-        <span class="block h-full w-0 rounded-full bg-gradient-to-r from-blue via-violet to-cyan" data-trust-line></span>
+    <div class="funnel-card reveal">
+      <div class="funnel-pill">
+        <span class="funnel-dot" aria-hidden="true"></span>
+        <span>The full funnel</span>
       </div>
-      {
-        steps.map(([icon, title, body, badgeClass], index) => (
-          <div class="reveal relative rounded-2xl border border-white/10 bg-[#1a2338] p-7 shadow-2xl shadow-black/20" data-trust-step data-reveal-delay={index * 0.08}>
-            <div class={`mb-8 flex h-14 w-14 items-center justify-center rounded-2xl text-white ${badgeClass}`}>
-              <Icon name={icon} class="h-7 w-7" aria-hidden="true" />
-            </div>
-            <h3 class="text-2xl font-extrabold text-white">{title}</h3>
-            <p class="mt-4 leading-8 text-slate-300">{body}</p>
-          </div>
-        ))
-      }
-    </div>
 
-    <p class="reveal gradient-text--bright mt-16 text-center font-display text-5xl font-extrabold leading-tight sm:text-6xl lg:text-7xl">
-      Trust → Trust → Revenue
-    </p>
+      <h2 class="funnel-heading">Most agencies specialize in one piece.</h2>
+      <p class="funnel-heading funnel-heading--accent">We connect all three.</p>
+
+      <div class="relative mt-10">
+        <div class="funnel-rail" aria-hidden="true"></div>
+        <div class="relative grid gap-4 md:grid-cols-3">
+          {
+            steps.map((step, index) => (
+              <div class="stepcard reveal" style={`--hl:${step.hl}`} data-reveal-delay={index * 0.08}>
+                <span class="ghost" aria-hidden="true">{step.num}</span>
+                <span class="step-icon" style={`background:${step.iconBg};color:${step.iconColor}`}>
+                  <Icon name={step.icon} class="h-5 w-5" aria-hidden="true" />
+                </span>
+                <p class="step-title">{step.title}</p>
+                <p class="step-body">{step.body}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="funnel-flow reveal">
+        <span style="color:#7f77dd">Trust</span>
+        <span class="flow-arrow" aria-hidden="true">
+          <Icon name="lucide:arrow-right" class="h-5 w-5" />
+        </span>
+        <span style="color:#534ab7">Trust</span>
+        <span class="flow-arrow flow-arrow--late" aria-hidden="true">
+          <Icon name="lucide:arrow-right" class="h-5 w-5" />
+        </span>
+        <span style="color:#0f6e56">Revenue</span>
+      </div>
+      <p class="funnel-note">One connected system — not three disconnected vendors.</p>
+    </div>
   </div>
 </section>
+
+<style>
+  .funnel-card {
+    position: relative;
+    border: 1px solid #f0e3ce;
+    border-radius: 1rem;
+    background: #fbf6ee;
+    padding: 3.5rem 2.5rem 3rem;
+  }
+
+  @media (max-width: 640px) {
+    .funnel-card {
+      padding: 2.5rem 1.25rem 2.25rem;
+    }
+  }
+
+  .funnel-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 22px;
+    border: 1px solid #afa9ec;
+    border-radius: 999px;
+    background: #ffffff;
+    padding: 6px 14px;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #534ab7;
+  }
+
+  @keyframes funnel-pulse {
+    0%,
+    100% {
+      opacity: 0.35;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .funnel-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #7f77dd;
+    animation: funnel-pulse 1.6s infinite;
+  }
+
+  .funnel-heading {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 34px);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: #1e2233;
+  }
+
+  .funnel-heading--accent {
+    color: #534ab7;
+  }
+
+  .funnel-rail {
+    position: absolute;
+    top: 47px;
+    left: 8%;
+    right: 8%;
+    height: 1px;
+    background: #eddfc8;
+  }
+
+  .stepcard {
+    position: relative;
+    border: 1px solid #eddfc8;
+    border-radius: 14px;
+    background: #ffffff;
+    padding: 26px 22px 24px;
+    transition:
+      transform 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  .stepcard:hover {
+    transform: translateY(-5px);
+    border-color: var(--hl);
+  }
+
+  .ghost {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 500;
+    line-height: 1;
+    color: #f0e3ce;
+    transition: 0.25s;
+  }
+
+  .stepcard:hover .ghost {
+    color: var(--hl);
+    opacity: 0.5;
+  }
+
+  .step-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+  }
+
+  .step-title {
+    margin: 18px 0 6px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e2233;
+  }
+
+  .step-body {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #6e6a5e;
+  }
+
+  .funnel-flow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 44px;
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 500;
+  }
+
+  @keyframes funnel-slide {
+    0% {
+      transform: translateX(-4px);
+      opacity: 0.4;
+    }
+
+    50% {
+      transform: translateX(4px);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateX(-4px);
+      opacity: 0.4;
+    }
+  }
+
+  .flow-arrow {
+    display: inline-flex;
+    color: #b4a88f;
+    animation: funnel-slide 1.8s ease-in-out infinite;
+  }
+
+  .flow-arrow--late {
+    animation-delay: 0.4s;
+  }
+
+  .funnel-note {
+    margin: 14px 0 0;
+    text-align: center;
+    font-size: 13px;
+    color: #8a8474;
+  }
+</style>

@@ -10,6 +10,13 @@ const builds = [
   ['lucide:workflow', 'Automated webinar funnels'],
   ['lucide:repeat', 'Live-to-evergreen systems'],
 ];
+
+const stats = [
+  { value: 10, template: '${}M+', initial: '$10M+', duration: 1200, label: 'Generated through webinars', barColor: '#4338ca' },
+  { value: 1000, template: '{}+', initial: '1,000+', duration: 1400, label: 'Live hours produced', barColor: '#06b6d4' },
+];
+
+const miniBarHeights = [40, 65, 50, 85, 60];
 ---
 
 <section id="events" class="bg-surface py-20 md:py-28">
@@ -22,27 +29,50 @@ const builds = [
     </div>
 
     <div class="mt-8 grid gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-start">
-      <div class="reveal">
-        <h2 class="text-4xl font-extrabold leading-tight text-ink sm:text-5xl">
+      <div>
+        <h2 class="reveal text-4xl font-extrabold leading-tight text-ink sm:text-5xl">
           Trust is built live.
         </h2>
-        <p class="mt-6 text-xl leading-9 text-body">
-          In a world of AI-generated content, real interaction stands out, deepens connection, and scales.
-        </p>
-        <p class="mt-8 text-lg leading-8 text-body">
-          Fully scripted and produced by us. Designed to reshape how attendees think, build conviction, and convert them into subscription and high-ticket customers — all in 60 minutes.
-        </p>
-        <p class="mt-8 text-2xl font-extrabold leading-tight text-ink">
-          A repeatable revenue engine that doesn't rely on more sales calls.
-        </p>
+
+        <div class="reveal mt-8 flex items-center gap-6 rounded-2xl border border-line bg-white p-6" data-reveal-delay="0.08">
+          <div class="relative flex h-[72px] w-[72px] flex-none items-center justify-center" aria-hidden="true">
+            <span class="le-ping absolute inset-0 rounded-full bg-[#4338ca]/25"></span>
+            <span class="le-ping le-ping--delay absolute inset-0 rounded-full bg-cyan/20"></span>
+            <span class="relative flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#4338ca] to-violet shadow-[0_12px_24px_-8px_rgba(67,56,202,0.45)]">
+              <Icon name="lucide:video" class="h-6 w-6 text-white" />
+            </span>
+          </div>
+          <div class="min-w-0 flex-1">
+            <div class="flex items-center gap-2">
+              <span class="h-[7px] w-[7px] rounded-full bg-[#ef4444]" aria-hidden="true"></span>
+              <span class="le-blink font-mono text-[11px] font-semibold tracking-[0.1em] text-[#ef4444]">LIVE</span>
+              <span class="font-mono text-[11px] text-slate-400">· real-time engagement</span>
+            </div>
+            <div class="le-wave mt-3 flex h-10 items-end gap-1.5" aria-hidden="true">
+              {Array.from({ length: 8 }).map(() => <span class="rounded-full"></span>)}
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal" data-reveal-delay="0.14">
+          <p class="mt-8 text-xl leading-9 text-body">
+            In a world of AI-generated content, real interaction stands out, deepens connection, and scales.
+          </p>
+          <p class="mt-6 text-lg leading-8 text-body">
+            Fully scripted and produced by us. Designed to reshape how attendees think, build conviction, and convert them into subscription and high-ticket customers — all in 60 minutes.
+          </p>
+          <p class="mt-8 text-2xl font-extrabold leading-tight text-ink">
+            A repeatable revenue engine that doesn't rely on more sales calls.
+          </p>
+        </div>
       </div>
 
-      <div class="reveal rounded-2xl border border-line bg-white p-7 shadow-xl shadow-violet/10">
+      <div class="reveal rounded-2xl border border-line bg-white p-7 shadow-xl shadow-violet/10" data-reveal-delay="0.1">
         <h3 class="text-xl font-extrabold text-ink">We build</h3>
         <div class="mt-6 grid gap-3">
           {
             builds.map(([icon, item]) => (
-              <div class="flex items-center gap-3.5 rounded-xl bg-[#f5f3ff] px-4 py-3 text-sm font-bold text-ink">
+              <div class="le-row flex items-center gap-3.5 rounded-xl bg-[#f5f3ff] px-4 py-3 text-sm font-bold text-ink">
                 <Icon name={icon} class="h-5 w-5 flex-none text-violet" aria-hidden="true" />
                 <span>{item}</span>
               </div>
@@ -50,26 +80,295 @@ const builds = [
           }
         </div>
         <div class="mt-7 grid gap-4 sm:grid-cols-2">
-          <div class="relative overflow-hidden rounded-2xl border border-line p-5">
-            <Icon
-              name="lucide:chart-no-axes-combined"
-              class="absolute -bottom-3 -right-3 h-20 w-20 text-violet opacity-[0.08]"
-              aria-hidden="true"
-            />
-            <p class="gradient-text font-display text-4xl font-extrabold">$10M+</p>
-            <p class="mt-2 font-bold text-body">GMV through webinars</p>
-          </div>
-          <div class="relative overflow-hidden rounded-2xl border border-line p-5">
-            <Icon
-              name="lucide:signal"
-              class="absolute -bottom-3 -right-3 h-20 w-20 text-violet opacity-[0.08]"
-              aria-hidden="true"
-            />
-            <p class="gradient-text font-display text-4xl font-extrabold">1,000+</p>
-            <p class="mt-2 font-bold text-body">live hours</p>
-          </div>
+          {
+            stats.map((stat) => (
+              <div class="relative overflow-hidden rounded-2xl border border-line p-5" data-stat-card>
+                <p
+                  class="font-display text-4xl font-extrabold leading-none text-[#4338ca]"
+                  data-count-to={stat.value}
+                  data-count-template={stat.template}
+                  data-count-duration={stat.duration}
+                >
+                  {stat.initial}
+                </p>
+                <p class="mt-2 font-bold text-body">{stat.label}</p>
+                <span class="le-mini" aria-hidden="true">
+                  {miniBarHeights.map((height) => (
+                    <span style={`height:${height}%;background:${stat.barColor}`} />
+                  ))}
+                </span>
+              </div>
+            ))
+          }
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes le-ping {
+    0% {
+      transform: scale(1);
+      opacity: 0.55;
+    }
+
+    100% {
+      transform: scale(2.6);
+      opacity: 0;
+    }
+  }
+
+  .le-ping {
+    animation: le-ping 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .le-ping--delay {
+    animation-delay: 0.9s;
+  }
+
+  @keyframes le-blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.35;
+    }
+  }
+
+  .le-blink {
+    animation: le-blink 1.6s ease-in-out infinite;
+  }
+
+  @keyframes le-bar0 {
+    0%,
+    100% {
+      height: 22%;
+    }
+
+    50% {
+      height: 85%;
+    }
+  }
+
+  @keyframes le-bar1 {
+    0%,
+    100% {
+      height: 55%;
+    }
+
+    50% {
+      height: 20%;
+    }
+  }
+
+  @keyframes le-bar2 {
+    0%,
+    100% {
+      height: 35%;
+    }
+
+    50% {
+      height: 95%;
+    }
+  }
+
+  @keyframes le-bar3 {
+    0%,
+    100% {
+      height: 80%;
+    }
+
+    50% {
+      height: 30%;
+    }
+  }
+
+  @keyframes le-bar4 {
+    0%,
+    100% {
+      height: 45%;
+    }
+
+    50% {
+      height: 70%;
+    }
+  }
+
+  @keyframes le-bar5 {
+    0%,
+    100% {
+      height: 65%;
+    }
+
+    50% {
+      height: 25%;
+    }
+  }
+
+  @keyframes le-bar6 {
+    0%,
+    100% {
+      height: 30%;
+    }
+
+    50% {
+      height: 90%;
+    }
+  }
+
+  @keyframes le-bar7 {
+    0%,
+    100% {
+      height: 75%;
+    }
+
+    50% {
+      height: 40%;
+    }
+  }
+
+  .le-wave span {
+    width: 5px;
+    height: 40%;
+    opacity: 0.85;
+  }
+
+  .le-wave span:nth-child(odd) {
+    background: #4338ca;
+  }
+
+  .le-wave span:nth-child(even) {
+    background: var(--color-cyan);
+  }
+
+  .le-wave span:nth-child(1) {
+    animation: le-bar0 1.6s ease-in-out infinite;
+  }
+
+  .le-wave span:nth-child(2) {
+    animation: le-bar1 1.9s ease-in-out 0.08s infinite;
+  }
+
+  .le-wave span:nth-child(3) {
+    animation: le-bar2 2.2s ease-in-out 0.16s infinite;
+  }
+
+  .le-wave span:nth-child(4) {
+    animation: le-bar3 1.6s ease-in-out 0.24s infinite;
+  }
+
+  .le-wave span:nth-child(5) {
+    animation: le-bar4 1.9s ease-in-out 0.32s infinite;
+  }
+
+  .le-wave span:nth-child(6) {
+    animation: le-bar5 2.2s ease-in-out 0.4s infinite;
+  }
+
+  .le-wave span:nth-child(7) {
+    animation: le-bar6 1.6s ease-in-out 0.48s infinite;
+  }
+
+  .le-wave span:nth-child(8) {
+    animation: le-bar7 1.9s ease-in-out 0.56s infinite;
+  }
+
+  .le-row {
+    border: 1px solid transparent;
+    transition:
+      transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      background 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  .le-row:hover {
+    transform: translateX(4px);
+    background: #e6e9fc;
+    border-color: #c7cefb;
+  }
+
+  .le-mini {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 34px;
+    opacity: 0.5;
+  }
+
+  .le-mini span {
+    width: 5px;
+    border-radius: 2px;
+  }
+
+  @keyframes le-grow {
+    from {
+      height: 0%;
+    }
+  }
+
+  [data-stat-card].in-view .le-mini span {
+    animation: le-grow 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  [data-stat-card].in-view .le-mini span:nth-child(1) {
+    animation-delay: 0.3s;
+  }
+
+  [data-stat-card].in-view .le-mini span:nth-child(2) {
+    animation-delay: 0.38s;
+  }
+
+  [data-stat-card].in-view .le-mini span:nth-child(3) {
+    animation-delay: 0.46s;
+  }
+
+  [data-stat-card].in-view .le-mini span:nth-child(4) {
+    animation-delay: 0.54s;
+  }
+
+  [data-stat-card].in-view .le-mini span:nth-child(5) {
+    animation-delay: 0.62s;
+  }
+</style>
+
+<script>
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const cards = document.querySelectorAll<HTMLElement>('[data-stat-card]');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const card = entry.target as HTMLElement;
+        observer.unobserve(card);
+        card.classList.add('in-view');
+
+        const counter = card.querySelector<HTMLElement>('[data-count-to]');
+        if (!counter || reduced) return;
+
+        const target = Number(counter.dataset.countTo ?? 0);
+        const duration = Number(counter.dataset.countDuration ?? 1400);
+        const template = counter.dataset.countTemplate ?? '{}';
+        const start = performance.now();
+
+        const tick = (now: number) => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          counter.textContent = template.replace('{}', Math.round(eased * target).toLocaleString('en-US'));
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+
+        requestAnimationFrame(tick);
+      });
+    },
+    { threshold: 0.4 }
+  );
+
+  cards.forEach((card) => observer.observe(card));
+</script>

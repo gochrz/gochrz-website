@@ -1,0 +1,146 @@
+---
+interface Props {
+  card: {
+    industry: string;
+    stat: string;
+    name: string;
+    funnel: string;
+    channel: string;
+    desc: string;
+    result: string;
+  };
+}
+
+const { card } = Astro.props;
+---
+
+<article class="chrz-card">
+  <div class="chrz-card__top">
+    <span class="chrz-card__industry">{card.industry}</span>
+    <span class="chrz-card__stat">{card.stat}</span>
+  </div>
+  <h3 class="chrz-card__name">{card.name}</h3>
+  <div class="chrz-card__meta">
+    <span>
+      <b>Funnel:</b> {card.funnel}
+    </span>
+    <span>
+      <b>Channel:</b> {card.channel}
+    </span>
+  </div>
+  <p class="chrz-card__desc">{card.desc}</p>
+  <p class="chrz-card__result">{card.result}</p>
+</article>
+
+<style>
+  .chrz-card {
+    width: 340px;
+    flex-shrink: 0;
+    background: #ffffff;
+    border: 1px solid #f0e4ce;
+    border-radius: 14px;
+    padding: 22px 22px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  .chrz-card:hover {
+    transform: translateY(-4px);
+    border-color: #e4d3ae;
+    box-shadow: 0 12px 28px rgba(60, 44, 10, 0.08);
+  }
+
+  .chrz-card__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .chrz-card__industry {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #b0731e;
+    background: #fbf3e2;
+    border: 1px solid #f2e3c2;
+    padding: 4px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .chrz-card__stat {
+    font-size: 14px;
+    font-weight: 800;
+    color: #2e7d5b;
+    white-space: nowrap;
+  }
+
+  .chrz-card__name {
+    font-family: var(--font-body);
+    font-size: 15.5px;
+    font-weight: 700;
+    color: #17151f;
+    line-height: 1.35;
+    margin: 0;
+    letter-spacing: normal;
+  }
+
+  .chrz-card__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    color: #6d5bd0;
+    font-weight: 600;
+    background: #f6f4fe;
+    border: 1px solid #e7e2fa;
+    border-radius: 8px;
+    padding: 8px 12px;
+  }
+
+  .chrz-card__meta span b {
+    color: #4b3ea8;
+    font-weight: 700;
+  }
+
+  .chrz-card__desc {
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: #6b6572;
+    margin: 0;
+    flex: 1;
+  }
+
+  .chrz-card__result {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #17151f;
+    border-top: 1px dashed #eadfc9;
+    padding-top: 11px;
+    margin: 0;
+    display: flex;
+    gap: 7px;
+    align-items: baseline;
+  }
+
+  .chrz-card__result::before {
+    content: '↗';
+    color: #2e7d5b;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 480px) {
+    .chrz-card__stat {
+      font-size: 13px;
+    }
+  }
+</style>

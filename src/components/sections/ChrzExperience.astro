@@ -1,4 +1,6 @@
 ---
+import ChrzCard from './ChrzCard.astro';
+
 const rowA = [
   {
     industry: 'B2B AI SaaS',
@@ -117,44 +119,47 @@ const rows = [
   { cards: rowA, reverse: false },
   { cards: rowB, reverse: true },
 ];
+
+const allCards = [...rowA, ...rowB];
 ---
 
-<section class="chrz-exp" aria-label="CHRZ's experience and case studies">
+<section id="case-studies" class="chrz-exp" aria-label="CHRZ's experience and case studies">
   <div class="chrz-exp__head reveal">
     <span class="chrz-exp__pill">Proven Systems</span>
     <h2 class="chrz-exp__title">CHRZ's <em>Experience</em></h2>
     <p class="chrz-exp__sub">Case studies also through Chrz's time building Techrupt Innovations and Teachly.</p>
   </div>
 
+  <!-- Desktop: auto-scrolling marquee rows -->
   {
     rows.map(({ cards, reverse }) => (
       <div class={`chrz-marquee ${reverse ? 'chrz-marquee--reverse' : ''}`}>
         {[0, 1].map((copy) => (
           <div class="chrz-track" aria-hidden={copy === 1 ? 'true' : undefined}>
             {cards.map((card) => (
-              <article class="chrz-card">
-                <div class="chrz-card__top">
-                  <span class="chrz-card__industry">{card.industry}</span>
-                  <span class="chrz-card__stat">{card.stat}</span>
-                </div>
-                <h3 class="chrz-card__name">{card.name}</h3>
-                <div class="chrz-card__meta">
-                  <span>
-                    <b>Funnel:</b> {card.funnel}
-                  </span>
-                  <span>
-                    <b>Channel:</b> {card.channel}
-                  </span>
-                </div>
-                <p class="chrz-card__desc">{card.desc}</p>
-                <p class="chrz-card__result">{card.result}</p>
-              </article>
+              <ChrzCard card={card} />
             ))}
           </div>
         ))}
       </div>
     ))
   }
+
+  <!-- Mobile: swipeable carousel -->
+  <div class="chrz-mobile">
+    <div class="chrz-carousel" id="chrz-carousel" aria-label="Case studies carousel">
+      {allCards.map((card) => <ChrzCard card={card} />)}
+    </div>
+    <div class="chrz-carousel__nav">
+      <button type="button" class="chrz-carousel__btn" data-chrz-dir="-1" aria-label="Previous case study">←</button>
+      <span class="chrz-carousel__count">
+        <b id="chrz-carousel-current">1</b>
+        <span aria-hidden="true">/</span>
+        {allCards.length}
+      </span>
+      <button type="button" class="chrz-carousel__btn" data-chrz-dir="1" aria-label="Next case study">→</button>
+    </div>
+  </div>
 </section>
 
 <style>
@@ -239,7 +244,7 @@ const rows = [
     font-weight: 500;
   }
 
-  /* ---------- Marquee rows ---------- */
+  /* ---------- Marquee rows (desktop / tablet) ---------- */
 
   .chrz-marquee {
     position: relative;
@@ -302,116 +307,86 @@ const rows = [
     }
   }
 
-  /* ---------- Cards ---------- */
+  /* ---------- Mobile carousel ---------- */
 
-  .chrz-card {
-    width: 340px;
-    flex-shrink: 0;
-    background: #ffffff;
-    border: 1px solid #f0e4ce;
-    border-radius: 14px;
-    padding: 22px 22px 20px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    transition:
-      transform 0.25s ease,
-      box-shadow 0.25s ease,
-      border-color 0.25s ease;
+  .chrz-mobile {
+    display: none;
   }
 
-  .chrz-card:hover {
-    transform: translateY(-4px);
-    border-color: #e4d3ae;
-    box-shadow: 0 12px 28px rgba(60, 44, 10, 0.08);
+  .chrz-carousel {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 4px 24px 12px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
   }
 
-  .chrz-card__top {
+  .chrz-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .chrz-carousel :global(.chrz-card) {
+    width: min(340px, calc(100vw - 72px));
+    scroll-snap-align: center;
+  }
+
+  .chrz-carousel__nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 16px;
   }
 
-  .chrz-card__industry {
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #b0731e;
-    background: #fbf3e2;
-    border: 1px solid #f2e3c2;
-    padding: 4px 10px;
-    border-radius: 999px;
-    white-space: nowrap;
-  }
-
-  .chrz-card__stat {
-    font-size: 14px;
-    font-weight: 800;
-    color: #2e7d5b;
-    white-space: nowrap;
-  }
-
-  .chrz-card__name {
-    font-family: var(--font-body);
-    font-size: 15.5px;
-    font-weight: 700;
-    color: #17151f;
-    line-height: 1.35;
-    margin: 0;
-    letter-spacing: normal;
-  }
-
-  .chrz-card__meta {
+  .chrz-carousel__btn {
     display: flex;
-    flex-direction: column;
-    gap: 4px;
-    font-size: 12px;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid #e4d3ae;
+    background: #ffffff;
     color: #6d5bd0;
-    font-weight: 600;
-    background: #f6f4fe;
-    border: 1px solid #e7e2fa;
-    border-radius: 8px;
-    padding: 8px 12px;
-  }
-
-  .chrz-card__meta span b {
-    color: #4b3ea8;
+    font-size: 17px;
     font-weight: 700;
+    cursor: pointer;
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease;
   }
 
-  .chrz-card__desc {
-    font-size: 12.5px;
-    line-height: 1.55;
-    color: #6b6572;
-    margin: 0;
-    flex: 1;
+  .chrz-carousel__btn:active {
+    background: #f6f4fe;
+    border-color: #cdc4f5;
   }
 
-  .chrz-card__result {
-    font-size: 12.5px;
-    font-weight: 600;
-    color: #17151f;
-    border-top: 1px dashed #eadfc9;
-    padding-top: 11px;
-    margin: 0;
+  .chrz-carousel__count {
     display: flex;
-    gap: 7px;
     align-items: baseline;
+    gap: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #8a8494;
+    min-width: 52px;
+    justify-content: center;
   }
 
-  .chrz-card__result::before {
-    content: '↗';
-    color: #2e7d5b;
+  .chrz-carousel__count b {
+    color: #17151f;
     font-weight: 800;
-    flex-shrink: 0;
   }
 
-  @media (max-width: 480px) {
-    .chrz-card {
-      width: 290px;
+  @media (max-width: 767px) {
+    .chrz-marquee {
+      display: none;
+    }
+
+    .chrz-mobile {
+      display: block;
     }
 
     .chrz-exp {
@@ -419,3 +394,38 @@ const rows = [
     }
   }
 </style>
+
+<script>
+  const carousel = document.getElementById('chrz-carousel');
+  const current = document.getElementById('chrz-carousel-current');
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-chrz-dir]');
+
+  if (carousel && current) {
+    const step = () => {
+      const card = carousel.querySelector<HTMLElement>('.chrz-card');
+      return card ? card.offsetWidth + 14 : carousel.clientWidth;
+    };
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        carousel.scrollBy({ left: Number(button.dataset.chrzDir) * step(), behavior: 'smooth' });
+      });
+    });
+
+    let ticking = false;
+    carousel.addEventListener(
+      'scroll',
+      () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          const index = Math.round(carousel.scrollLeft / step()) + 1;
+          const total = carousel.querySelectorAll('.chrz-card').length;
+          current.textContent = String(Math.min(Math.max(index, 1), total));
+          ticking = false;
+        });
+      },
+      { passive: true }
+    );
+  }
+</script>

@@ -242,7 +242,7 @@ Any exception to this policy applies only if it is explicitly stated in the Stri
 
 For services billed on a recurring basis, each billing period is treated as a separate prepaid service period. Fees for each period are earned upon commencement of work for that period. Once work begins within a billing cycle, the payment for that cycle is fully earned and not reversible, regardless of outcome, satisfaction, or results.
 
-## 10. Quality disputes — notice & cure
+## 10. Quality disputes: notice & cure
 
 ### 10.1 Notice requirements
 

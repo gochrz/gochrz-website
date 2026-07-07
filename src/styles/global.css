@@ -30,6 +30,10 @@ html {
   scroll-behavior: smooth;
 }
 
+section[id] {
+  scroll-margin-top: 80px;
+}
+
 body {
   min-width: 320px;
   overflow-x: clip;

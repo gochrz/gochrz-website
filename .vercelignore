@@ -1,0 +1,4 @@
+.claude/
+.playwright-cli/
+posthog-setup-report.md
+tests/

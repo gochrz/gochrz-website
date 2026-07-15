@@ -36,7 +36,7 @@ const pillars = [
       </h2>
       <p class="reveal cta-sub">Book a call and we'll map the three pillars to your business.</p>
 
-      <a href={calendlyUrl} target="_blank" rel="noopener" class="reveal cta-btn group">
+      <a href={calendlyUrl} target="_blank" rel="noopener" class="reveal cta-btn group" id="final-cta-book-call">
         <span class="shine" aria-hidden="true"></span>
         <Icon name="lucide:calendar" class="h-[17px] w-[17px]" aria-hidden="true" />
         Book a Systems Call
@@ -274,3 +274,9 @@ const pillars = [
     color: var(--color-body);
   }
 </style>
+
+<script is:inline>
+  document.getElementById('final-cta-book-call')?.addEventListener('click', function () {
+    window.posthog?.capture('book_call_clicked', { location: 'final_cta' });
+  });
+</script>

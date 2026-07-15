@@ -409,6 +409,9 @@ const allCards = [...rowA, ...rowB];
     buttons.forEach((button) => {
       button.addEventListener('click', () => {
         carousel.scrollBy({ left: Number(button.dataset.chrzDir) * step(), behavior: 'smooth' });
+        window.posthog?.capture('case_study_carousel_navigated', {
+          direction: Number(button.dataset.chrzDir) > 0 ? 'next' : 'previous',
+        });
       });
     });
 

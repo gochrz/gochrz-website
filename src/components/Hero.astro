@@ -19,11 +19,11 @@ const calendlyUrl = 'https://calendly.com/ben-chrzanowski/chrz-intro-call';
         We help B2B SaaS companies, service businesses, and creator businesses generate revenue through live events, industry personalities, and social content.
       </p>
       <div class="mt-9 flex flex-col gap-4 sm:flex-row">
-        <a href={calendlyUrl} target="_blank" rel="noopener" class="primary-button group">
+        <a href={calendlyUrl} target="_blank" rel="noopener" class="primary-button group" id="hero-book-call">
           Book a Systems Call
           <span aria-hidden="true" class="button-arrow">→</span>
         </a>
-        <a href="#pillars" class="ghost-button">
+        <a href="#pillars" class="ghost-button" id="hero-see-pillars">
           See the three pillars ↓
         </a>
       </div>
@@ -152,4 +152,13 @@ const calendlyUrl = 'https://calendly.com/ben-chrzanowski/chrz-intro-call';
     addAvatar();
     setInterval(addAvatar, 1400);
   }
+</script>
+
+<script is:inline>
+  document.getElementById('hero-book-call')?.addEventListener('click', function () {
+    window.posthog?.capture('book_call_clicked', { location: 'hero' });
+  });
+  document.getElementById('hero-see-pillars')?.addEventListener('click', function () {
+    window.posthog?.capture('hero_secondary_cta_clicked');
+  });
 </script>

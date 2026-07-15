@@ -11,10 +11,10 @@ const nav = [
       CHR<span class="text-blue">Z</span>
     </a>
 
-    <nav class="hidden items-center gap-7 md:flex" aria-label="Main">
+    <nav class="hidden items-center gap-7 md:flex" aria-label="Main" id="header-nav">
       {
         nav.map((item) => (
-          <a href={item.href} class="text-sm font-semibold text-slate-600 transition-colors hover:text-ink">
+          <a href={item.href} class="text-sm font-semibold text-slate-600 transition-colors hover:text-ink" data-nav-label={item.label}>
             {item.label}
           </a>
         ))
@@ -26,9 +26,22 @@ const nav = [
       target="_blank"
       rel="noopener"
       class="primary-button primary-button--sm group"
+      id="header-book-call"
     >
       Book a Systems Call
       <span aria-hidden="true" class="button-arrow">→</span>
     </a>
   </div>
 </header>
+
+<script is:inline>
+  document.getElementById('header-book-call')?.addEventListener('click', function () {
+    window.posthog?.capture('book_call_clicked', { location: 'header' });
+  });
+  document.getElementById('header-nav')?.addEventListener('click', function (e) {
+    var target = e.target.closest('[data-nav-label]');
+    if (target) {
+      window.posthog?.capture('nav_link_clicked', { label: target.dataset.navLabel });
+    }
+  });
+</script>
